@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.EventSystems;
 
 public class GridTesting : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GridTesting : MonoBehaviour
     [SerializeField] Tile changeTile;
     [SerializeField] Tile startTile;
     [SerializeField] Tilemap cityMap;
+    [SerializeField] GameObject selectionSquare;
 
     // Start is called before the first frame update
     void Start()
@@ -25,19 +27,29 @@ public class GridTesting : MonoBehaviour
         for (int i = 0; i < 20; i++)
             for (int j = 0; j < 20; j++)
             {
-                //Vector3Int tile = cityMap.WorldToCell(new Vector3(i, j, 0));
-                CityMapGridObject hmgo = cityGrid.GetGridObject(i, j);
-                hmgo.BaseTile = startTile;
+                int newI, newJ;
+                newI = 5 - i;
+                newJ = 5 - j;
+                if (newI * newI + newJ * newJ < 30)
+                {
+                    //Vector3Int tile = cityMap.WorldToCell(new Vector3(i, j, 0));
+                    CityMapGridObject hmgo = cityGrid.GetGridObject(i, j);
+                    hmgo.BaseTile = startTile;
+                }
             }
     }
 
     private void Update()
     {
+        // Find mouse position on Grid
+        Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        position.z = 0;
+        Vector3Int tile = cityMap.WorldToCell(position);
+        CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x, tile.y);
+
+
         if (Input.GetMouseButtonDown(0))
-        {            
-            Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int tile = cityMap.WorldToCell(position);
-            CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x-5, tile.y-5);
+        {
             Debug.Log("Button Pressed: " + position);
             if (hmgo != null)
             {
@@ -45,6 +57,18 @@ public class GridTesting : MonoBehaviour
                 hmgo.ObjectTile = changeTile;
             }
         }
+
+        // Do not update selection if over the UI Panels
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+
+        // Get the position of the mouse and convert it to cells
+        Vector3 roundedPos = cityMap.CellToWorld(tile);
+        selectionSquare.transform.position = roundedPos;
+               
+
     }
 
     // Update is called once per frame
