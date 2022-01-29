@@ -101,18 +101,22 @@ public class Grid<TGridObject>
     {
         int x, y;
         cellSize = scale;
-        Vector3 pos = origin;
+        float halfCell = scale / 2.0f;
+        Vector3 pos = origin + new Vector3(0.0f,0);
 
         for (x = 0; x < width; x++)
             for (y = 0; y < height; y++)
             {
-                Debug.DrawLine(pos + new Vector3(x, y + 1) * cellSize, pos + new Vector3(x + 1, y + 1) * cellSize, Color.red);
-                Debug.DrawLine(pos + new Vector3(x + 1, y + 1) * cellSize, pos + new Vector3(x + 1, y) * cellSize, Color.blue);
+                //Debug.DrawLine(pos + new Vector3(x, y + 1) * cellSize, pos + new Vector3(x + 1, y + 1) * cellSize, Color.red);
+                //Debug.DrawLine(pos + new Vector3(x + 1, y + 1) * cellSize, pos + new Vector3(x + 1, y) * cellSize, Color.blue);
+                Debug.DrawLine(pos + new Vector3(x+(y*cellSize), (x * cellSize) - y -halfCell) * cellSize, pos + new Vector3(x + (y * cellSize)+cellSize, (x * cellSize) - y +halfCell ) * cellSize, Color.red);
+                Debug.DrawLine(pos + new Vector3(x + (y * cellSize), (x*cellSize)- y - halfCell) * cellSize, pos + new Vector3(x + (y * cellSize) + cellSize, (x * cellSize) - y - cellSize-halfCell) * cellSize, Color.blue);
+                //Debug.DrawLine(pos + new Vector3(x + 1, y + 1), pos + new Vector3(x + halfCell + 1, y), Color.blue);
 
-                // Debug.Log(GetWorldPosition(pos.x + x, pos.y + y) + "->" + GetWorldPosition(pos.x + x+1, pos.y + y + 1));
+                Debug.Log("pos: " + (pos + new Vector3(x + (y * cellSize) , y - halfCell) * cellSize));
             }
-        Debug.DrawLine(new Vector3(pos.x, pos.y, pos.z), pos + new Vector3(width, 0) * cellSize, Color.red);
-        Debug.DrawLine(new Vector3(pos.x, pos.y, pos.z), pos + new Vector3(0, height) * cellSize, Color.blue);
+        //Debug.DrawLine(new Vector3(pos.x+halfCell, pos.y, pos.z), pos + new Vector3(width + halfCell, 0) * cellSize, Color.red);
+        //Debug.DrawLine(new Vector3(pos.x+halfCell, pos.y, pos.z), pos + new Vector3(0 + halfCell, height) * cellSize, Color.blue);
 
     }
 
