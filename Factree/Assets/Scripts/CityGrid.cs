@@ -43,24 +43,24 @@ public class CityGrid<TGridObject>
         }
     }
 
-    private Vector3 GetWorldPosition(int x, int y)
-    {
-        return new Vector3(x, y) * cellSize + origin;
-    }
+    //private Vector3 GetWorldPosition(int x, int y)
+    //{
+    //    return new Vector3(x, y) * cellSize + origin;
+    //}
 
-    private void GetXY(Vector3 worldPosition, out int x, out int y)
-    {
-        x = Mathf.FloorToInt((worldPosition - origin).x / cellSize);
-        y = Mathf.FloorToInt((worldPosition - origin).y / cellSize);
-    }
+    //private void GetXY(Vector3 worldPosition, out int x, out int y)
+    //{
+    //    x = Mathf.FloorToInt((worldPosition - origin).x / cellSize);
+    //    y = Mathf.FloorToInt((worldPosition - origin).y / cellSize);
+    //}
 
-    public void SetGridObject(Vector3 worldPosition, TGridObject gridObject)
-    {
-        int x, y;
+    //public void SetGridObject(Vector3 worldPosition, TGridObject gridObject)
+    //{
+    //    int x, y;
 
-        GetXY(worldPosition, out x, out y);
-        SetGridObject(x, y, gridObject);
-    }
+    //    GetXY(worldPosition, out x, out y);
+    //    SetGridObject(x, y, gridObject);
+    //}
 
     public void SetGridObject(int x, int y, TGridObject gridObject)
     {
@@ -90,12 +90,12 @@ public class CityGrid<TGridObject>
             return default(TGridObject);
         }
     }
-    public TGridObject GetGridObject(Vector3 worldPosition)
-    {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        return GetGridObject(x, y);
-    }
+    //public TGridObject GetGridObject(Vector3 worldPosition)
+    //{
+    //    int x, y;
+    //    GetXY(worldPosition, out x, out y);
+    //    return GetGridObject(x, y);
+    //}
 
     public void DrawDebug(float scale)
     {

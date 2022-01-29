@@ -10,33 +10,39 @@ public class GridTesting : MonoBehaviour
     [SerializeField] CityMapGridVisual cityVisual;
     [SerializeField] float scale;
 
+    [SerializeField] PlantsSO plantList;
     [SerializeField] Tile changeTile;
     [SerializeField] Tile startTile;
+    [SerializeField] Tilemap cityMap;
 
     // Start is called before the first frame update
     void Start()
     {
-        cityGrid = new CityGrid<CityMapGridObject>(20, 10, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
-
-        for (int i = 0; i < 10; i++)
-            for (int j = 0; j < 10; j++)
-            {
-                CityMapGridObject hmgo = cityGrid.GetGridObject(new Vector3(i,j));
-                hmgo.BaseTile = changeTile;
-            }
-
+        cityGrid = new CityGrid<CityMapGridObject>(20, 20, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
+        
         cityVisual.SetGrid(cityGrid);
+
+        for (int i = 0; i < 20; i++)
+            for (int j = 0; j < 20; j++)
+            {
+                //Vector3Int tile = cityMap.WorldToCell(new Vector3(i, j, 0));
+                CityMapGridObject hmgo = cityGrid.GetGridObject(i, j);
+                hmgo.BaseTile = startTile;
+            }
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
-        {
+        {            
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            CityMapGridObject hmgo = cityGrid.GetGridObject(position);
+            Vector3Int tile = cityMap.WorldToCell(position);
+            CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x-5, tile.y-5);
+            Debug.Log("Button Pressed: " + position);
             if (hmgo != null)
             {
-                hmgo.BaseTile = changeTile;
+                Debug.Log("Setting new tile:" + position);
+                hmgo.ObjectTile = changeTile;
             }
         }
     }

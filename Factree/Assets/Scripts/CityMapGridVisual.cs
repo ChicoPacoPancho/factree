@@ -23,11 +23,9 @@ public class CityMapGridVisual : MonoBehaviour
     }
 
     public void SetGrid(CityGrid<CityMapGridObject> grid)
-    {
-        CityMapGridObject tempGO = new CityMapGridObject(grid,0,0 );
-        tempGO.BaseTile = baseTile;
-
+    {      
         this.grid = grid;
+        Debug.Log("Grid set");
        
         UpdateCityMapVisual();
 
@@ -36,21 +34,14 @@ public class CityMapGridVisual : MonoBehaviour
 
     private void Grid_OnGridValueChanged(object sender, CityGrid<CityMapGridObject>.OnGridObjectChangedEventArgs e)
     {
-        updateMesh = true;
+        UpdateCityMapVisual();
     }
 
-    void LateUpdate()
-    {
-        if (updateMesh)
-        {
-            UpdateCityMapVisual();
-        }
-    }
-
+  
     private void UpdateCityMapVisual()
     {
         int x, y;
-
+        Debug.Log("Updating visuals");
         for (x = 0; x < grid.Width; x++)
             for (y = 0; y < grid.Height; y++)
             {
@@ -72,6 +63,8 @@ public class CityMapGridVisual : MonoBehaviour
                 //Debug.DrawLine(new Vector3(stepX + grid.CellSize, stepY), new Vector3(stepX + grid.CellSize, stepY + grid.CellSize), new Color(gridValueNormalized, gridValueNormalized, .2f));
                 //Debug.DrawLine(new Vector3(stepX + grid.CellSize, stepY), new Vector3(stepX, stepY + grid.CellSize), new Color(gridValueNormalized, gridValueNormalized, .2f));
             }
+
+        
     }
 }
 
@@ -85,7 +78,7 @@ public class CityMapGridObject
         get
         { return baseTile; }
         set
-        { baseTile = value; grid.TriggerGridObjectChanged(x, y);  }
+        { baseTile = value; Debug.Log("Setting tile:" + x + "," + y); grid.TriggerGridObjectChanged(x, y);  }
     }
     //Plant/Building object
     Tile objectTile;
