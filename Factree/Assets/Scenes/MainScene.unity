@@ -296,6 +296,11 @@ GameObject:
   - component: {fileID: 2072612045}
   - component: {fileID: 2072612044}
   - component: {fileID: 2072612043}
+  - component: {fileID: 2072612046}
+  - component: {fileID: 2072612047}
+  - component: {fileID: 2072612048}
+  - component: {fileID: 2072612050}
+  - component: {fileID: 2072612049}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -368,3 +373,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072612046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072612042}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbc44176ccc25fc41ae53a78a657d9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 1910468141}
+  setTo: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
+  follow: {fileID: 0}
+--- !u!114 &2072612047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072612042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d06431957bf4244fb75e094f9c3a138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityMap: {fileID: 1910468141}
+  objectMap: {fileID: 1910468141}
+  baseTile: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
+--- !u!33 &2072612048
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072612042}
+  m_Mesh: {fileID: 0}
+--- !u!114 &2072612049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072612042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d06431957bf4244fb75e094f9c3a138, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityMap: {fileID: 0}
+  objectMap: {fileID: 0}
+  baseTile: {fileID: 0}
+--- !u!114 &2072612050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072612042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf0606d35b71834b9f20c648b9a7c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityVisual: {fileID: 2072612047}
+  scale: 1
+  changeTile: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
+  startTile: {fileID: 11400000, guid: df47512444a47184cbcbd24f0b005396, type: 2}

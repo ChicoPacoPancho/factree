@@ -30,10 +30,16 @@ public class ClickBehaviour : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         { 
-            Debug.Log(cell);
+            Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = 0;
+            follow.transform.position = pos; 
+            Vector3Int cell = grid.WorldToCell(pos);
+            Debug.Log("Position: " + cell);
             Debug.Log(grid.GetTile(cell));
-            follow.transform.position = pos;
+
             grid.SetTile(cell, setTo);
+            
+            grid.RefreshAllTiles();
         }
     }
 }
