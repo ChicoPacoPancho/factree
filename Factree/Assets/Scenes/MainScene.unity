@@ -417,7 +417,6 @@ GameObject:
   - component: {fileID: 2072612048}
   - component: {fileID: 2072612043}
   - component: {fileID: 2072612046}
-  - component: {fileID: 2072612047}
   - component: {fileID: 2072612050}
   - component: {fileID: 2072612049}
   m_Layer: 0
@@ -507,21 +506,6 @@ MonoBehaviour:
   grid: {fileID: 1910468141}
   setTo: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
   follow: {fileID: 0}
---- !u!114 &2072612047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072612042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d06431957bf4244fb75e094f9c3a138, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cityMap: {fileID: 1910468141}
-  objectMap: {fileID: 2058810912}
-  baseTile: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
 --- !u!33 &2072612048
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -557,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf0606d35b71834b9f20c648b9a7c50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cityVisual: {fileID: 2072612047}
+  cityVisual: {fileID: 2072612049}
   scale: 1
   plantList: {fileID: 11400000, guid: 8538954e64dc8eb4286ce76a62396529, type: 2}
   changeTile: {fileID: 11400000, guid: 87ea70c2a035d0c42b41dcd66d7d73da, type: 2}
