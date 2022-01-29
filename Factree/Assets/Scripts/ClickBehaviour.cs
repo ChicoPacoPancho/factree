@@ -20,20 +20,17 @@ public class ClickBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get the position of the mouse and convert it to cells
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        pos.z = 0; // By default the function above returns -10 which is not right
-        Vector3Int cell = grid.WorldToCell(pos);
-
-        Vector3 roundedPos = grid.CellToWorld(cell);
-        selectionSquare.transform.position = roundedPos;
 
         if (Input.GetMouseButtonDown(0))
-        { 
+        {
+
+            // Get the position of the mouse and convert it to cells
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0;
-            follow.transform.position = pos; 
+            pos.z = 0; // By default the function above returns -10 which is not right
             Vector3Int cell = grid.WorldToCell(pos);
+            Vector3 roundedPos = grid.CellToWorld(cell);
+            selectionSquare.transform.position = roundedPos;
+            follow.transform.position = pos; 
             Debug.Log("Position: " + cell);
             Debug.Log(grid.GetTile(cell));
 
