@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Grid<TGridObject>
+public class CityGrid<TGridObject>
 {
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
     public class OnGridObjectChangedEventArgs: EventArgs
@@ -23,7 +23,7 @@ public class Grid<TGridObject>
     public int Height { get { return height; } set { height = value; } }
     public float CellSize { get { return cellSize; } set { cellSize = value;     } }
 
-    public Grid(int width, int height, float cellSize, Vector3 origin, Func<Grid<TGridObject>, int, int, TGridObject> createGridObject)
+    public CityGrid(int width, int height, float cellSize, Vector3 origin, Func<CityGrid<TGridObject>, int, int, TGridObject> createGridObject)
     {
         int x, y;
 
@@ -102,13 +102,15 @@ public class Grid<TGridObject>
         int x, y;
         cellSize = scale;
         float halfCell = scale / 2.0f;
-        Vector3 pos = origin + new Vector3(0.0f,0);
+        Vector3 pos = origin + new Vector3(0.5f,0);
 
         for (x = 0; x < width; x++)
             for (y = 0; y < height; y++)
             {
                 //Debug.DrawLine(pos + new Vector3(x, y + 1) * cellSize, pos + new Vector3(x + 1, y + 1) * cellSize, Color.red);
                 //Debug.DrawLine(pos + new Vector3(x + 1, y + 1) * cellSize, pos + new Vector3(x + 1, y) * cellSize, Color.blue);
+
+
                 Debug.DrawLine(pos + new Vector3(x+(y*cellSize), (x * cellSize) - y -halfCell) * cellSize, pos + new Vector3(x + (y * cellSize)+cellSize, (x * cellSize) - y +halfCell ) * cellSize, Color.red);
                 Debug.DrawLine(pos + new Vector3(x + (y * cellSize), (x*cellSize)- y - halfCell) * cellSize, pos + new Vector3(x + (y * cellSize) + cellSize, (x * cellSize) - y - cellSize-halfCell) * cellSize, Color.blue);
                 //Debug.DrawLine(pos + new Vector3(x + 1, y + 1), pos + new Vector3(x + halfCell + 1, y), Color.blue);

@@ -25,9 +25,11 @@ public class ClickBehaviour : MonoBehaviour
             pos.z = 0;
             follow.transform.position = pos; 
             Vector3Int cell = grid.WorldToCell(pos);
-            Debug.Log(cell);
+            Debug.Log("Position: " + cell);
             Debug.Log(grid.GetTile(cell));
+
             grid.SetTile(cell, setTo);
+            
             grid.RefreshAllTiles();
         }
     }

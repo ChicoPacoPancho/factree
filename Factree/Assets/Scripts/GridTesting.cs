@@ -1,25 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridTesting : MonoBehaviour
 {
-    Grid<bool>[] grid;
-    public Grid<HeatMapGridObject> heatGrid;
-    [SerializeField] HeatmapGridVisual heatVisual;
+    CityGrid<bool>[] grid;
+    public CityGrid<CityMapGridObject> cityGrid;
+    [SerializeField] CityMapGridVisual cityVisual;
     [SerializeField] float scale;
+
+    [SerializeField] Tile changeTile;
+    [SerializeField] Tile startTile;
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid<bool>[3];
-        grid[0] = new Grid<bool>(20, 10, scale, transform.position, (Grid<bool> g, int x, int y) => false);
-        grid[1] = new Grid<bool>(10, 10, scale * 1.5f, Vector3.zero, (Grid<bool> g, int x, int y) => false);
-        grid[2] = new Grid<bool>(2, 10, scale * .5f, Vector3.forward, (Grid<bool> g, int x, int y) => false);
+        cityGrid = new CityGrid<CityMapGridObject>(20, 10, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
 
-        heatGrid = new Grid<HeatMapGridObject>(20, 10, 1f, Vector3.zero, (Grid<HeatMapGridObject> g, int x, int y) => new HeatMapGridObject(g, x, y));
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+            {
+                CityMapGridObject hmgo = cityGrid.GetGridObject(new Vector3(i,j));
+                hmgo.BaseTile = changeTile;
+            }
 
-        heatVisual.SetGrid(heatGrid);
+        cityVisual.SetGrid(cityGrid);
     }
 
     private void Update()
@@ -27,10 +33,10 @@ public class GridTesting : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            HeatMapGridObject hmgo = heatGrid.GetGridObject(position);
+            CityMapGridObject hmgo = cityGrid.GetGridObject(position);
             if (hmgo != null)
             {
-                hmgo.AddValue(5);
+                hmgo.BaseTile = changeTile;
             }
         }
     }
@@ -38,7 +44,7 @@ public class GridTesting : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        heatGrid.DrawDebug(1f);
+     //   cityGrid.DrawDebug(1f);
         //for (int i = 0; i < 3; i++)
         //{
         //    grid[i].DrawDebug(scale*(i+.5f));

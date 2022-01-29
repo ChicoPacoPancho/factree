@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HeatmapGridVisual : MonoBehaviour
 {
-    Grid<HeatMapGridObject> grid;
+    CityGrid<HeatMapGridObject> grid;
     Mesh mesh;
     bool updateMesh;
     
@@ -14,7 +14,7 @@ public class HeatmapGridVisual : MonoBehaviour
         GetComponent<MeshFilter>().mesh = mesh;
     }
 
-    public void SetGrid( Grid<HeatMapGridObject> grid)
+    public void SetGrid(CityGrid<HeatMapGridObject> grid)
     {
         this.grid = grid;
         UpdateHeatMapVisual();
@@ -22,7 +22,7 @@ public class HeatmapGridVisual : MonoBehaviour
         grid.OnGridObjectChanged += Grid_OnGridValueChanged;
     }
 
-    private void Grid_OnGridValueChanged(object sender, Grid<HeatMapGridObject>.OnGridObjectChangedEventArgs e)
+    private void Grid_OnGridValueChanged(object sender, CityGrid<HeatMapGridObject>.OnGridObjectChangedEventArgs e)
     {
         updateMesh = true;
     }
@@ -64,10 +64,10 @@ public class HeatMapGridObject
     const int MIN = 0;
     const int MAX = 100;
 
-    private Grid<HeatMapGridObject> grid;
+    private CityGrid<HeatMapGridObject> grid;
     public int x, y, value;
 
-    public HeatMapGridObject(Grid<HeatMapGridObject> grid, int x, int y )
+    public HeatMapGridObject(CityGrid<HeatMapGridObject> grid, int x, int y )
     {
         this.grid = grid;
         this.x = x;
