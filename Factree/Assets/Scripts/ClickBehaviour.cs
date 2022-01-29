@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
 
 public class ClickBehaviour : MonoBehaviour
@@ -20,23 +21,26 @@ public class ClickBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetMouseButtonDown(0))
+        // Do not update selection if over the UI Panels
+        if (EventSystem.current.IsPointerOverGameObject())
         {
+            return;
+        }
 
             // Get the position of the mouse and convert it to cells
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = 0; // By default the function above returns -10 which is not right
-            Vector3Int cell = grid.WorldToCell(pos);
-            Vector3 roundedPos = grid.CellToWorld(cell);
-            selectionSquare.transform.position = roundedPos;
-            follow.transform.position = pos; 
-            Debug.Log("Position: " + cell);
-            Debug.Log(grid.GetTile(cell));
+        pos.z = 0; // By default the function above returns -10 which is not right
+        Vector3Int cell = grid.WorldToCell(pos);
 
+        Vector3 roundedPos = grid.CellToWorld(cell);
+        selectionSquare.transform.position = roundedPos;
+
+        if (Input.GetMouseButtonDown(0))
+        { 
+            Debug.Log(cell);
+            Debug.Log(grid.GetTile(cell));
+            //follow.transform.position = pos;
             grid.SetTile(cell, setTo);
-            
-            grid.RefreshAllTiles();
         }
     }
 }
