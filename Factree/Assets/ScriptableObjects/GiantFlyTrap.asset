@@ -25,7 +25,8 @@ MonoBehaviour:
   - resourceType: 5
     count: 10
   canBuildOn: 0300000002000000
-  spawnList: []
+  spawnList:
+  - {fileID: 8009967799199731486, guid: e34687dd7193bfa4981fc63d1d345f1a, type: 3}
   spawnInterval: 0
-  collectResourceAbilities:
-  - {fileID: 11400000, guid: d5de89c2c1232f14fa481875ce17a242, type: 2}
+  collectResourceAbilities: []
+  removesPlants: 0

@@ -11,6 +11,8 @@ public class WreckingArea : MonoBehaviour
     Vector3Int startingPos;
     public string playOnDestroy = "";
 
+    public bool FlyTrap = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,8 @@ public class WreckingArea : MonoBehaviour
         }
         //Debug.Log("Wreck timer");
         var objects = RadiusResources(1);
+        if (FlyTrap) objects = RadiusFlyTrapResources(1);
+
         if (objects.Count > 0)
         {
             var rand = objects[Random.Range(0, objects.Count - 1)];
@@ -58,6 +62,27 @@ public class WreckingArea : MonoBehaviour
                 {
                     if (GarbageDictionary.Instance.GetTileType(obj.Resource) != GarbageTileType.Car && 
                         GarbageDictionary.Instance.GetTileType(obj.Resource) != GarbageTileType.Dumpster)
+                    {
+                        objects.Add(obj);
+                    }
+                }
+            }
+        }
+        return objects;
+    }
+    List<CityMapGridObject> RadiusFlyTrapResources(int radius)
+    {
+        List<CityMapGridObject> objects = new List<CityMapGridObject>();
+        // Tally up all used and produced resources
+        for (int x = Mathf.Max(0, startingPos.x - radius); x <= startingPos.x + radius && x < grid.cityGrid.Width; x++)
+        {
+            for (int y = Mathf.Max(0, startingPos.y - radius); y <= startingPos.y + radius && y < grid.cityGrid.Width; y++)
+            {
+                var obj = grid.cityGrid.GetGridObject(x, y);
+                if (obj != null && obj.Resource != null)
+                {
+                    if (GarbageDictionary.Instance.GetTileType(obj.Resource) == GarbageTileType.Car ||
+                        GarbageDictionary.Instance.GetTileType(obj.Resource) == GarbageTileType.Dumpster)
                     {
                         objects.Add(obj);
                     }
