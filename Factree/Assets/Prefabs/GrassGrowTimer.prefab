@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 10
   activateOnDestroy: {fileID: 0}
-  playOnDestroy: PlaceSound
+  playOnDestroy: 
   setBaseTile: 1
   baseTile: {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
   setPlantSO: 0

@@ -174,9 +174,9 @@ public class GridManagement : MonoBehaviour
                 {
                     // Check first values before setting
 
-                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile) || cheatMode)
+                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
                     {
-                        if (hmgo.Resource == null || cheatMode)
+                        if (hmgo.Resource == null)
                         {
 
                             if (changeSO.CheckCost() || cheatMode)
