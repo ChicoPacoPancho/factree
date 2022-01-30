@@ -67,6 +67,7 @@ public class BuildableSO : ScriptableObject
     public List<BaseTileType> canBuildOn;
     public List<GameObject> spawnList;
     public float spawnInterval;
+    public List<CollectResourceAbility> collectResourceAbilities;
 
     public bool CanBeBuiltOn(Tile tile)
     {
@@ -122,6 +123,14 @@ public class BuildableSO : ScriptableObject
         foreach (GameObject obj in spawnList)
         {
             Instantiate(obj, position, Quaternion.identity, null);
+        }
+    }
+
+    public void DoAbilitiesOnTarget(int x, int y, int targetX, int targetY)
+    {
+        foreach(CollectResourceAbility ca in collectResourceAbilities)
+        {
+            ca.DoAbility(x, y, targetX, targetY);
         }
     }
 }
