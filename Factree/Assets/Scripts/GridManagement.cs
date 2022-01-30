@@ -18,7 +18,7 @@ public class GridManagement : MonoBehaviour
     [SerializeField] CityMapGridVisual cityVisual;
     [SerializeField] float scale;
     
-    [SerializeField] PlantsSO plantList;
+    
     [SerializeField] BuildableSO changeSO;
     [SerializeField] Tile selectedTile;
     [SerializeField] Tilemap cityMap;
@@ -84,14 +84,14 @@ public class GridManagement : MonoBehaviour
         cityGrid.GetGridObject(8, 4).ObjectTile = selectedTile;
 
         // Dumpster
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Dumpster);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Dumpster).baseImage;
         cityGrid.GetGridObject(8, 6).ObjectTile = selectedTile;
         cityGrid.GetGridObject(8, 5).ObjectTile = selectedTile;
         cityGrid.GetGridObject(2, 6).ObjectTile = selectedTile;
         cityGrid.GetGridObject(2, 5).ObjectTile = selectedTile;
 
         // Observatory
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Observatory);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Observatory).baseImage;
         cityGrid.GetGridObject(5, 2).ObjectTile = selectedTile;
         cityGrid.GetGridObject(7, 5).ObjectTile = selectedTile;
         cityGrid.GetGridObject(1, 7).ObjectTile = selectedTile;
@@ -99,14 +99,14 @@ public class GridManagement : MonoBehaviour
         cityGrid.GetGridObject(0, 5).ObjectTile = selectedTile;
 
         // Mall
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Mall);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Mall).baseImage;
         cityGrid.GetGridObject(1, 3).ObjectTile = selectedTile;
         cityGrid.GetGridObject(1, 4).ObjectTile = selectedTile;
         cityGrid.GetGridObject(9, 5).ObjectTile = selectedTile;
         cityGrid.GetGridObject(7, 3).ObjectTile = selectedTile;
 
         // Industry
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Industry);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Industry).baseImage;
         cityGrid.GetGridObject(8, 9).ObjectTile = selectedTile;
         cityGrid.GetGridObject(5, 9).ObjectTile = selectedTile;
         cityGrid.GetGridObject(8, 7).ObjectTile = selectedTile;
@@ -116,7 +116,7 @@ public class GridManagement : MonoBehaviour
         cityGrid.GetGridObject(5, 1).ObjectTile = selectedTile;
 
         // Car
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Car);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Car).baseImage;
         cityGrid.GetGridObject(7, 9).ObjectTile = selectedTile;
         cityGrid.GetGridObject(7, 8).ObjectTile = selectedTile;
         cityGrid.GetGridObject(6, 8).ObjectTile = selectedTile;
@@ -126,7 +126,7 @@ public class GridManagement : MonoBehaviour
         cityGrid.GetGridObject(4, 6).ObjectTile = selectedTile;
 
         // Skyscraper
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.SkyScraper);
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.SkyScraper).baseImage;
         cityGrid.GetGridObject(2, 7).ObjectTile = selectedTile;
         cityGrid.GetGridObject(2, 8).ObjectTile = selectedTile;
         cityGrid.GetGridObject(2, 9).ObjectTile = selectedTile;
