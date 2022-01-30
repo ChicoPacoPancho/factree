@@ -47,6 +47,10 @@ public class DestroySelfTimer : MonoBehaviour
         }
         if (setPlantSO)
         { 
+            if (plantSO == null)
+            {
+                Debug.Log("No plant selected");
+            }
             FindObjectOfType<GridManagement>().cityGrid.GetGridObject(gridXY.x, gridXY.y).PlantTile = plantSO;
         }
         Destroy(gameObject);
