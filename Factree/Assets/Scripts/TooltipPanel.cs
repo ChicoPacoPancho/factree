@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class TooltipPanel : MonoBehaviour
 {
 
     public BuildableSO setObject;
+    public GarbageSO setRObject;
 
     public GameObject prefab;
+
+    public Sprite noneSprite;
 
     // Start is called before the first frame update
     void Start()
@@ -38,35 +42,55 @@ public class TooltipPanel : MonoBehaviour
             }
         }
 
-        if (setObject == null) return;
+        if (setObject == null && setRObject == null) return;
 
         var card = subpanel.Find("Card");
 
-        card.GetComponentInChildren<Text>().text = SelectionPanel.SplitCamelCase(setObject.name);
-        card.GetComponentInChildren<Image>().sprite = setObject.baseImage.sprite;
+        
+        string label = "";
+        if (setObject != null) label = setObject.name;
+        if (setRObject != null) label = setRObject.name;
 
-        foreach (var r in setObject.resourceOut)
+        Sprite sprite = noneSprite;
+        if (setObject != null && setObject.baseImage != null) sprite = setObject.baseImage.sprite;
+        if (setRObject != null && setRObject.baseImage != null) sprite = setRObject.baseImage.sprite;
+
+        card.GetComponentInChildren<Text>().text = SelectionPanel.SplitCamelCase(label);
+        card.GetComponentInChildren<Image>().sprite = sprite;
+
+        if (setObject != null)
+        {
+            foreach (var r in setObject.resourceOut)
+            {
+                var newItem = Instantiate(prefab, subpanel.Find("Production Panel"));
+                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
+                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
+                textObject.text = "+" + SpecialRound(r.count);
+            }
+
+            foreach (var r in setObject.resourceIn)
+            {
+                var newItem = Instantiate(prefab, subpanel.Find("Upkeep Panel"));
+                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
+                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
+                textObject.text = "-" + SpecialRound(r.count);
+            }
+
+            foreach (var r in setObject.builtCost)
+            {
+                var newItem = Instantiate(prefab, subpanel.Find("Cost Panel"));
+                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
+                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
+                textObject.text = "-" + r.count;
+            }
+        }
+
+        if (setRObject != null)
         {
             var newItem = Instantiate(prefab, subpanel.Find("Production Panel"));
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
+            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(setRObject.resource.resourceType);
             var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "+" + SpecialRound(r.count);
-        }
-
-        foreach (var r in setObject.resourceIn)
-        {
-            var newItem = Instantiate(prefab, subpanel.Find("Upkeep Panel"));
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
-            var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "-" + SpecialRound(r.count);
-        }
-
-        foreach (var r in setObject.builtCost)
-        {
-            var newItem = Instantiate(prefab, subpanel.Find("Cost Panel"));
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
-            var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "-" + r.count;
+            textObject.text = "+" + SpecialRound(setRObject.resource.count*60);
         }
     }
 
@@ -85,6 +109,21 @@ public class TooltipPanel : MonoBehaviour
         }
         var subpanel = transform.GetChild(0);
         setObject = so;
+        setRObject = null;
+        UpdatePanel();
+        subpanel.gameObject.SetActive(true);
+    }
+
+    public void SetResourceData(GarbageSO so)
+    {
+        if (so == null)
+        {
+            HidePanel();
+            return;
+        }
+        var subpanel = transform.GetChild(0);
+        setRObject = so;
+        setObject = null;
         UpdatePanel();
         subpanel.gameObject.SetActive(true);
     }
