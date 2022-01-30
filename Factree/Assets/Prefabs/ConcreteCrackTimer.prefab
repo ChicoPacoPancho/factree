@@ -48,5 +48,5 @@ MonoBehaviour:
   playOnDestroy: DestroySound
   setBaseTile: 1
   baseTile: {fileID: 11400000, guid: 4cfba1d13fd51db4481867cb71bb06ef, type: 2}
-  setObjectTile: 1
-  objectTile: {fileID: 0}
+  setPlantSO: 1
+  plantSO: {fileID: 0}
