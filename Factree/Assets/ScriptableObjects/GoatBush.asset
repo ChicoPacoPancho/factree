@@ -17,8 +17,8 @@ MonoBehaviour:
   - resourceType: 0
     count: 10
   resourceOut:
-  - resourceType: 4
-    count: 20
+  - resourceType: 5
+    count: 60
   builtCost:
   - resourceType: 1
     count: 20
