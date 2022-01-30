@@ -20,12 +20,16 @@ public class GarbageSO : ScriptableObject
 
 
     public Tile baseImage;
-    public List<ResourceItem> resources;
+    public ResourceItem resource;
     //public List<ResourceItem> resourceOut;
     //public List<ResourceItem> builtCost;
     //public List<BaseTileType> canBuildOn;
     //public List<SpawnType> spawnList;
     //public float spawnInterval;
 
-    
+    public void SubtractResource(int amount)
+    {
+        resource.count -= amount/60;
+
+    }
 }

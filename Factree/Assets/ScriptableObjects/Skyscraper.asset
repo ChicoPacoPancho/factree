@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6f1195abac8c04ea9e8aa848b53785, type: 3}
   m_Name: Skyscraper
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
+  baseImage: {fileID: 11400000, guid: 1528f2399987b234f90d1fc62e626a96, type: 2}
+  resources: []

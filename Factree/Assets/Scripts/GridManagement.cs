@@ -20,6 +20,7 @@ public class GridManagement : MonoBehaviour
     
     
     [SerializeField] BuildableSO changeSO;
+    [SerializeField] GarbageSO garbageSO;
     [SerializeField] Tile selectedTile;
     [SerializeField] Tilemap cityMap;
     [SerializeField] GameObject selectionSquare;    
@@ -80,57 +81,57 @@ public class GridManagement : MonoBehaviour
 
         // Build up Objects
         // World Tree
-        selectedTile = BuildableDictionary.Instance.GetTile(BuildableTileType.RootTree).baseImage;
-        cityGrid.GetGridObject(8, 4).ObjectTile = selectedTile;
+        changeSO = BuildableDictionary.Instance.GetTile(BuildableTileType.RootTree);
+        cityGrid.GetGridObject(8, 4).PlantTile = changeSO;
 
         // Dumpster
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Dumpster).baseImage;
-        cityGrid.GetGridObject(8, 6).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(8, 5).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(2, 6).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(2, 5).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.Dumpster);
+        cityGrid.GetGridObject(8, 6).Resource = garbageSO;
+        cityGrid.GetGridObject(8, 5).Resource = garbageSO;
+        cityGrid.GetGridObject(2, 6).Resource = garbageSO;
+        cityGrid.GetGridObject(2, 5).Resource = garbageSO;
 
         // Observatory
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Observatory).baseImage;
-        cityGrid.GetGridObject(5, 2).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(7, 5).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(1, 7).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(1, 6).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(0, 5).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.Observatory);
+        cityGrid.GetGridObject(5, 2).Resource = garbageSO;
+        cityGrid.GetGridObject(7, 5).Resource = garbageSO;
+        cityGrid.GetGridObject(1, 7).Resource = garbageSO;
+        cityGrid.GetGridObject(1, 6).Resource = garbageSO;
+        cityGrid.GetGridObject(0, 5).Resource = garbageSO;
 
         // Mall
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Mall).baseImage;
-        cityGrid.GetGridObject(1, 3).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(1, 4).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(9, 5).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(7, 3).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.Mall);
+        cityGrid.GetGridObject(1, 3).Resource = garbageSO;
+        cityGrid.GetGridObject(1, 4).Resource = garbageSO;
+        cityGrid.GetGridObject(9, 5).Resource = garbageSO;
+        cityGrid.GetGridObject(7, 3).Resource = garbageSO;
 
         // Industry
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Industry).baseImage;
-        cityGrid.GetGridObject(8, 9).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(5, 9).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(8, 7).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(6, 1).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(6, 0).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(5, 0).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(5, 1).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.Industry);
+        cityGrid.GetGridObject(8, 9).Resource = garbageSO;
+        cityGrid.GetGridObject(5, 9).Resource = garbageSO;
+        cityGrid.GetGridObject(8, 7).Resource = garbageSO;
+        cityGrid.GetGridObject(6, 1).Resource = garbageSO;
+        cityGrid.GetGridObject(6, 0).Resource = garbageSO;
+        cityGrid.GetGridObject(5, 0).Resource = garbageSO;
+        cityGrid.GetGridObject(5, 1).Resource = garbageSO;
 
         // Car
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Car).baseImage;
-        cityGrid.GetGridObject(7, 9).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(7, 8).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(6, 8).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(5, 8).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(6, 6).ObjectTile = selectedTile;        
-        cityGrid.GetGridObject(6, 5).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(4, 6).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.Car);
+        cityGrid.GetGridObject(7, 9).Resource = garbageSO;
+        cityGrid.GetGridObject(7, 8).Resource = garbageSO;
+        cityGrid.GetGridObject(6, 8).Resource = garbageSO;
+        cityGrid.GetGridObject(5, 8).Resource = garbageSO;
+        cityGrid.GetGridObject(6, 6).Resource = garbageSO;        
+        cityGrid.GetGridObject(6, 5).Resource = garbageSO;
+        cityGrid.GetGridObject(4, 6).Resource = garbageSO;
 
         // Skyscraper
-        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.SkyScraper).baseImage;
-        cityGrid.GetGridObject(2, 7).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(2, 8).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(2, 9).ObjectTile = selectedTile;
-        cityGrid.GetGridObject(8, 2).ObjectTile = selectedTile;
+        garbageSO = GarbageDictionary.Instance.GetTile(GarbageTileType.SkyScraper);
+        cityGrid.GetGridObject(2, 7).Resource = garbageSO;
+        cityGrid.GetGridObject(2, 8).Resource = garbageSO;
+        cityGrid.GetGridObject(2, 9).Resource = garbageSO;
+        cityGrid.GetGridObject(8, 2).Resource = garbageSO;
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
@@ -145,6 +146,7 @@ public class GridManagement : MonoBehaviour
         position.z = 0;
         Vector3Int tile = cityMap.WorldToCell(position);
         CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x, tile.y);
+        Vector3 roundedPos = cityMap.CellToWorld(tile);
 
         selectionSquare.SetActive(false);
 
@@ -178,10 +180,14 @@ public class GridManagement : MonoBehaviour
                         if (changeSO.CheckCost())
                         {
                             Debug.Log("Setting new tile:" + position);
-                            hmgo.ObjectTile = changeSO.baseImage;
-                            hmgo.buildableSO = changeSO;
+                            hmgo.PlantTile = changeSO;                            
                             changeSO.SubtractCost();
                             GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                            // Spawn any immediate spawns
+                            if (changeSO.spawnInterval == 0)
+                            {
+                                changeSO.SpawnSpawns(roundedPos);
+                            }
                         }
                         else
                         {
@@ -199,7 +205,6 @@ public class GridManagement : MonoBehaviour
             // Get the position of the mouse and convert it to cells
             if (hmgo.BaseTile != null)
             {                
-                Vector3 roundedPos = cityMap.CellToWorld(tile);
                 selectionSquare.transform.position = roundedPos;
             }
         }

@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   scriptableObjects:
+  - {fileID: 11400000, guid: c6c8fd18b9e9e944895203bc3ec80179, type: 2}
   - {fileID: 11400000, guid: 54c2ad66e5fb7d240975c050c5c0afb4, type: 2}
   - {fileID: 11400000, guid: 4e5063e93b024824dadd9f5aa430517b, type: 2}
   - {fileID: 11400000, guid: 6b7022f981a90fe468fd937f1b0158a1, type: 2}
