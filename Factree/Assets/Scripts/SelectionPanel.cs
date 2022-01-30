@@ -65,7 +65,8 @@ public class SelectionPanel : MonoBehaviour
 
         public void OnButtonClick(Card card)
         {
-            Debug.Log(card.label + " was chosen");
+            //Debug.Log(card.label + " selected");
+            MessagePanel.Instance.ShowMessage(card.label + " selected");
 
             GetComponent<AudioSource>().Play();
 
@@ -83,7 +84,7 @@ public class SelectionPanel : MonoBehaviour
             tooltipPanel.HidePanel();
         }
 
-    public static string SplitCamelCase(string input)
+        public static string SplitCamelCase(string input)
         {
             return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
         }

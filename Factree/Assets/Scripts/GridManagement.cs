@@ -171,32 +171,36 @@ public class GridManagement : MonoBehaviour
                 if (hmgo != null && changeSO != null)
                 {
                     // Check first values before setting
-                    bool canBePlaced = changeSO.CanBeBuiltOn(hmgo.BaseTile);
-                    canBePlaced &= changeSO.CheckCost();
 
                     if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
                     {
+                        if (hmgo.Resource == null)
+                        {
 
-                        if (changeSO.CheckCost())
-                        {
-                            Debug.Log("Setting new tile:" + position);
-                            hmgo.PlantTile = changeSO;                            
-                            changeSO.SubtractCost();
-                            GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
-                            // Spawn any immediate spawns
-                            if (changeSO.spawnInterval == 0)
+                            if (changeSO.CheckCost())
                             {
-                                changeSO.SpawnSpawns(roundedPos);
+                                Debug.Log("Setting new tile:" + position);
+                                hmgo.PlantTile = changeSO;
+                                changeSO.SubtractCost();
+                                GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                                // Spawn any immediate spawns
+                                if (changeSO.spawnInterval == 0)
+                                {
+                                    changeSO.SpawnSpawns(roundedPos);
+                                }
                             }
-                        }
-                        else
+                            else
+                            {
+                                MessagePanel.Instance.ShowMessage("Not enough resources to place this object");
+                            }
+                        } else
                         {
-                            Debug.Log("Not enough resources!");
+                            MessagePanel.Instance.ShowMessage("Cannot place plants on top of a ruin");
                         }
                     }
                     else
                     {
-                        Debug.Log("Cannot be placed here!");
+                        MessagePanel.Instance.ShowMessage("This plant can't grow here");
                     }
 
                 }
