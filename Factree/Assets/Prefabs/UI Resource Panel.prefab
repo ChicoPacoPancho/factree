@@ -128,31 +128,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580533714481e7947a8e69f17dd98b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceManager: {fileID: 0}
   resources:
   - label: Water
+    type: 0
     quanitity: 0
     sprite: {fileID: -2978653956524333172, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   - label: Energy
+    type: 1
     quanitity: 0
     sprite: {fileID: -1290855366162983238, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   - label: Nitrogen
+    type: 0
     quanitity: 0
     sprite: {fileID: -2248273014285675650, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   - label: Phosphorus
+    type: 5
     quanitity: 0
     sprite: {fileID: -2696506250795634678, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   - label: Sulfur
+    type: 3
     quanitity: 0
     sprite: {fileID: 6621252853494989987, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   - label: Potassium
+    type: 4
     quanitity: 0
     sprite: {fileID: 3357360333254942192, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
+    textObject: {fileID: 0}
   prefab: {fileID: 4372856313636087330, guid: d2de6f139dda3704699cfd9b4963f0f1, type: 3}
 --- !u!1 &614890667059240482
 GameObject:

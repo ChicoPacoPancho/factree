@@ -10,10 +10,10 @@ public class GridManagement : MonoBehaviour
     public event EventHandler<OnSelectionButtonEventArgs> OnSelectionButtonClicked;
     public class OnSelectionButtonEventArgs : EventArgs
     {
-        public Sprite selectedTile;
+        public Tile selectedTile;
     }
         
-    CityGrid<bool>[] grid;
+    
     public CityGrid<CityMapGridObject> cityGrid;
     [SerializeField] CityMapGridVisual cityVisual;
     [SerializeField] float scale;
@@ -32,7 +32,7 @@ public class GridManagement : MonoBehaviour
         cityGrid = new CityGrid<CityMapGridObject>(12, 12, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
         
         cityVisual.SetGrid(cityGrid);
-
+                
         for (int i = 0; i < 12; i++)
             for (int j = 0; j < 12; j++)
             {
@@ -46,11 +46,13 @@ public class GridManagement : MonoBehaviour
                     hmgo.BaseTile = startTile;
                 }
             }
+
+        
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
     {
-        changeTile = startTile;
+        changeTile = e.selectedTile;
     }
 
     private void Update()
@@ -103,7 +105,7 @@ public class GridManagement : MonoBehaviour
      
     }
 
-    public void TriggerSelectionButtonClicked(Sprite selection)
+    public void TriggerSelectionButtonClicked(Tile selection)
     {
         if (OnSelectionButtonClicked != null)
         {
