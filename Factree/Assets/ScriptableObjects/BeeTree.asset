@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: BeeTree
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
-  resourceIn: []
+  baseImage: {fileID: 11400000, guid: 6287525c7c1d8aa4d9c1115a64e28ae1, type: 2}
+  resourceIn:
+  - resourceType: 0
+    count: 10
   resourceOut: []
-  builtCost: []
-  canBuildOn: 
-  spawnList: 
-  spawnInterval: 0
+  builtCost:
+  - resourceType: 1
+    count: 30
+  - resourceType: 2
+    count: 20
+  - resourceType: 4
+    count: 30
+  canBuildOn: 0300000002000000
+  spawnList: 00000000
+  spawnInterval: 10

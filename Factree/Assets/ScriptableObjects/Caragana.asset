@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: Caragana
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
-  resourceIn: []
-  resourceOut: []
-  builtCost: []
-  canBuildOn: 
+  baseImage: {fileID: 11400000, guid: 5ae78c79d5eb8784abaa8a64ce265fe8, type: 2}
+  resourceIn:
+  - resourceType: 0
+    count: 10
+  resourceOut:
+  - resourceType: 2
+    count: 30
+  builtCost:
+  - resourceType: 1
+    count: 10
+  canBuildOn: 0300000002000000
   spawnList: 
   spawnInterval: 0
