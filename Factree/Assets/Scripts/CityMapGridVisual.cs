@@ -21,8 +21,7 @@ public class CityMapGridVisual : MonoBehaviour
     public void SetGrid(CityGrid<CityMapGridObject> grid)
     {      
         this.grid = grid;
-        Debug.Log("Grid set");
-       
+               
         UpdateCityMapVisual();
 
         grid.OnGridObjectChanged += Grid_OnGridValueChanged;
@@ -37,7 +36,7 @@ public class CityMapGridVisual : MonoBehaviour
     private void UpdateCityMapVisual()
     {
         int x, y;
-        Debug.Log("Updating visuals");
+       
         for (x = 0; x < grid.Width; x++)
             for (y = 0; y < grid.Height; y++)
             {
@@ -60,7 +59,7 @@ public class CityMapGridObject
         get
         { return baseTile; }
         set
-        { baseTile = value; Debug.Log("Setting tile:" + x + "," + y); grid.TriggerGridObjectChanged(x, y);  }
+        { baseTile = value; grid.TriggerGridObjectChanged(x, y);  }
     }
     //Plant/Building object
     Tile objectTile;
