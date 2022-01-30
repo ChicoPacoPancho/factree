@@ -69,6 +69,8 @@ public class BuildableSO : ScriptableObject
     public float spawnInterval;
     public List<CollectResourceAbility> collectResourceAbilities;
 
+    public bool removesPlants = false;
+
     public bool CanBeBuiltOn(Tile tile)
     {
         return canBuildOn.Contains(GroundDictionary.Instance.GetTileType(tile));
