@@ -12,8 +12,8 @@ public class DestroySelfTimer : MonoBehaviour
 
     public bool setBaseTile = false;
     public Tile baseTile;
-    public bool setObjectTile = false;
-    public Tile objectTile;
+    public bool setPlantSO = false;
+    public BuildableSO plantSO;
 
     // Start is called before the first frame update
     void Start()
@@ -45,9 +45,9 @@ public class DestroySelfTimer : MonoBehaviour
         {
             FindObjectOfType<GridManagement>().cityGrid.GetGridObject(gridXY.x, gridXY.y).BaseTile = baseTile;
         }
-        if (setObjectTile)
+        if (setPlantSO)
         { 
-            FindObjectOfType<GridManagement>().cityGrid.GetGridObject(gridXY.x, gridXY.y).ObjectTile = objectTile;
+            FindObjectOfType<GridManagement>().cityGrid.GetGridObject(gridXY.x, gridXY.y).PlantTile = plantSO;
         }
         Destroy(gameObject);
     }
