@@ -11,7 +11,7 @@ public class CityGrid<TGridObject>
         public int x;
         public int y;
     }
-
+   
 
     private int width;
     private int height;

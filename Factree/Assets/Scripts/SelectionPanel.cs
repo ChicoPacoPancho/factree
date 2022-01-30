@@ -33,8 +33,14 @@ public class SelectionPanel : MonoBehaviour
     public void OnButtonClick(Card card)
     {
         Debug.Log( card.label + " was chosen");
+
+        var GM = FindObjectOfType<GridManagement>();
+        GM.TriggerSelectionButtonClicked(card.sprite);
     }
+
 }
+
+
 
 [Serializable]
 public class Card
