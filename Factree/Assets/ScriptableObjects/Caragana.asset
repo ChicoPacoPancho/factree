@@ -15,13 +15,14 @@ MonoBehaviour:
   baseImage: {fileID: 11400000, guid: 5ae78c79d5eb8784abaa8a64ce265fe8, type: 2}
   resourceIn:
   - resourceType: 0
-    count: 10
+    count: 0
   resourceOut:
   - resourceType: 2
-    count: 30
+    count: 0
   builtCost:
   - resourceType: 1
-    count: 10
+    count: 0
   canBuildOn: 0300000002000000
-  spawnList: 
+  spawnList: []
   spawnInterval: 0
+  collectResourceAbilities: []

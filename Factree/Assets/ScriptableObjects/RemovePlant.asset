@@ -10,23 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
-  m_Name: GiantFlyTrap
+  m_Name: RemovePlant
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 11400000, guid: 836dc6d708db3fb4c801c1ee7b4649f0, type: 2}
-  resourceIn:
-  - resourceType: 0
-    count: 10
+  baseImage: {fileID: 11400000, guid: aa8a1cd8cced6fc46963b2ad1e7e1d92, type: 2}
+  resourceIn: []
   resourceOut: []
-  builtCost:
-  - resourceType: 1
-    count: 10
-  - resourceType: 2
-    count: 10
-  - resourceType: 5
-    count: 10
-  canBuildOn: 0300000002000000
-  spawnList:
-  - {fileID: 8009967799199731486, guid: e34687dd7193bfa4981fc63d1d345f1a, type: 3}
+  builtCost: []
+  canBuildOn: 0300000002000000000000000100000004000000
+  spawnList: []
   spawnInterval: 0
   collectResourceAbilities: []
-  removesPlants: 0
+  removesPlants: 1

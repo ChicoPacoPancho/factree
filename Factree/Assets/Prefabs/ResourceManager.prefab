@@ -80,6 +80,8 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 10a89db2ef728c84b988b828e5cec5db, type: 2}
   - tileType: 9
     tile: {fileID: 11400000, guid: e436940d20b3bc3419bb5a7e0f50a46f, type: 2}
+  - tileType: 10
+    tile: {fileID: 11400000, guid: 86dc6177d2843b74e9da6fbace3b3dfe, type: 2}
 --- !u!114 &2676839903011942609
 MonoBehaviour:
   m_ObjectHideFlags: 0
