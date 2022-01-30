@@ -1834,6 +1834,7 @@ MonoBehaviour:
   selectedTile: {fileID: 0}
   cityMap: {fileID: 1910468141}
   selectionSquare: {fileID: 564341495}
+  cheatMode: 0
 --- !u!4 &853846298
 Transform:
   m_ObjectHideFlags: 0

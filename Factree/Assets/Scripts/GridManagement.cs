@@ -23,7 +23,9 @@ public class GridManagement : MonoBehaviour
     [SerializeField] GarbageSO garbageSO;
     [SerializeField] Tile selectedTile;
     [SerializeField] Tilemap cityMap;
-    [SerializeField] GameObject selectionSquare;    
+    [SerializeField] GameObject selectionSquare;
+
+    public bool cheatMode = false;
    
 
     // Start is called before the first frame update
@@ -172,12 +174,12 @@ public class GridManagement : MonoBehaviour
                 {
                     // Check first values before setting
 
-                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
+                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile) || cheatMode)
                     {
-                        if (hmgo.Resource == null)
+                        if (hmgo.Resource == null || cheatMode)
                         {
 
-                            if (changeSO.CheckCost())
+                            if (changeSO.CheckCost() || cheatMode)
                             {
                                 Debug.Log("Setting new tile:" + position);
                                 hmgo.PlantTile = changeSO;
