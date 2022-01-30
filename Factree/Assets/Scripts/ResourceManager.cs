@@ -38,7 +38,20 @@ public class ResourceManager : MonoBehaviour
                     }
                 }
             }
+        }
+    }
+    public void AddTimeResourceChange(ResourceType type, int resourceChangePerSecond, int totalSeconds)
+    {
+        StartCoroutine(ResourceChangeOverTime(type, resourceChangePerSecond, totalSeconds));
+    }
 
+    private IEnumerator ResourceChangeOverTime(ResourceType type, int amountPerSecond, int totalSeconds)
+    {
+        for (int i = 0; i < totalSeconds; i++)
+        {
+            AddResourceAmountByType(type, amountPerSecond);
+
+            yield return new WaitForSeconds(1);
         }
     }
 

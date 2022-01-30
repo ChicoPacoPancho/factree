@@ -17,8 +17,9 @@ public class GridManagement : MonoBehaviour
     public CityGrid<CityMapGridObject> cityGrid;
     [SerializeField] CityMapGridVisual cityVisual;
     [SerializeField] float scale;
-    
-    
+
+
+    CityMapGridObject selectedObject;
     [SerializeField] BuildableSO changeSO;
     [SerializeField] GarbageSO garbageSO;
     [SerializeField] Tile selectedTile;
@@ -151,6 +152,7 @@ public class GridManagement : MonoBehaviour
         Vector3 roundedPos = cityMap.CellToWorld(tile);
 
         selectionSquare.SetActive(false);
+        
 
         if (hmgo == null)
         {
@@ -170,54 +172,59 @@ public class GridManagement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Button Pressed: " + position);
-                if (hmgo != null && changeSO != null)
+                if (hmgo != null)
                 {
-                    // Check first values before setting
-
-                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
+                    if (changeSO != null)
                     {
+                        // Check first values before setting
+                        bool canBePlaced = changeSO.CanBeBuiltOn(hmgo.BaseTile);
+                        canBePlaced &= changeSO.CheckCost();
+
                         if (hmgo.Resource == null)
                         {
-
                             if (hmgo.PlantTile == null)
                             {
-                                if (changeSO.CheckCost() || cheatMode)
+                                if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
                                 {
-                                    Debug.Log("Setting new tile:" + position);
-                                    hmgo.PlantTile = changeSO;
-                                    changeSO.SubtractCost();
-                                    GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
-                                    // Spawn any immediate spawns
-                                    if (changeSO.spawnInterval == 0)
+
+                                    if (changeSO.CheckCost())
                                     {
-                                        changeSO.SpawnSpawns(roundedPos);
+                                        Debug.Log("Setting new tile:" + position);
+                                        hmgo.PlantTile = changeSO;
+                                        changeSO.SubtractCost();
+                                        GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                                        // Spawn any immediate spawns
+                                        if (changeSO.spawnInterval == 0)
+                                        {
+                                            changeSO.SpawnSpawns(roundedPos);
+                                        }
+
+
+                                    }
+                                    else
+                                    {
+                                        Debug.Log("Not enough resources!");
                                     }
                                 }
                                 else
                                 {
-                                    MessagePanel.Instance.ShowMessage("Not enough resources to place this object");
+                                    Debug.Log("Cannot be placed here!");
                                 }
                             }
-                            else
-                            {
-                                MessagePanel.Instance.ShowMessage("There is already a plant here");
-                            }
-                        } else
-                        {
-                            MessagePanel.Instance.ShowMessage("Cannot place plants on top of a ruin");
                         }
-                    }
-                    else
-                    {
-                        MessagePanel.Instance.ShowMessage("This plant can't grow here");
+                        else if (selectedObject.PlantTile != null)
+                        {
+                            selectedObject.PlantTile.DoAbilitiesOnTarget(selectedObject.x, selectedObject.y, hmgo.x, hmgo.y);
+                        }
                     }
 
                 }
+                selectedObject = hmgo;
             }
 
             // Get the position of the mouse and convert it to cells
             if (hmgo.BaseTile != null)
-            {                
+            {
                 selectionSquare.transform.position = roundedPos;
                 FindObjectOfType<TooltipPanel>().SetData(hmgo.PlantTile);
             }

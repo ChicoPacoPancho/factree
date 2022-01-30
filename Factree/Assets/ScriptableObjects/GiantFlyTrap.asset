@@ -25,5 +25,7 @@ MonoBehaviour:
   - resourceType: 5
     count: 10
   canBuildOn: 0300000002000000
-  spawnList: 
+  spawnList: []
   spawnInterval: 0
+  collectResourceAbilities:
+  - {fileID: 11400000, guid: d5de89c2c1232f14fa481875ce17a242, type: 2}
