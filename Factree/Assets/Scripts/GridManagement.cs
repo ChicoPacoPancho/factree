@@ -153,6 +153,15 @@ public class GridManagement : MonoBehaviour
 
         selectionSquare.SetActive(false);
         
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            cheatMode = !cheatMode;
+            if (cheatMode)
+                MessagePanel.Instance.ShowMessage("Cheatmode ON");
+            else
+                MessagePanel.Instance.ShowMessage("Cheatmode OFF");
+
+        }
 
         if (hmgo == null)
         {
