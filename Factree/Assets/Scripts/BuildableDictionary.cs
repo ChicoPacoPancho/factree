@@ -7,11 +7,9 @@ public class BuildableDictionary : MonoBehaviour
 {
     [System.Serializable]
     public struct BaseTileDictionary
-    {
-        [SerializeField]
-        public BaseTileType tileType;
-        [SerializeField]
-        public TileBase tile;
+    {        
+        public BuildableTileType tileType;        
+        public BuildableSO tile;
     }
 
     public List<BaseTileDictionary> dictionary;
@@ -23,7 +21,7 @@ public class BuildableDictionary : MonoBehaviour
     }
 
     
-    public TileBase GetTile(BaseTileType type)
+    public BuildableSO GetTile(BuildableTileType type)
     {
         foreach (var dict in dictionary)
         {
@@ -35,7 +33,7 @@ public class BuildableDictionary : MonoBehaviour
         return null;
     }
 
-    public BaseTileType GetTileType(TileBase tile)
+    public BuildableTileType GetTileType(Tile tile)
     {
         foreach (var dict in dictionary)
         {
@@ -44,7 +42,7 @@ public class BuildableDictionary : MonoBehaviour
                 return dict.tileType;
             }
         }
-        return BaseTileType.Concrete;
+        return BuildableTileType.BeeTree;
     }
 
 }

@@ -22,6 +22,30 @@ public enum BaseTileType
     Asphalt
 }
 
+public enum GarbageTileType
+{
+    Dumpster,
+    Observatory,
+    Mall,
+    Industry,
+    Car,
+    SkyScraper   
+}
+
+public enum BuildableTileType
+{
+    BeeTree,
+    BerryBush,
+    Caragana,
+    GiantFlyTrap,
+    MangroveTree,
+    RootTree,
+    Solar,
+    StorageGrove,
+    WaterWheel,
+    WreackingBallTree
+}
+
 public enum ResourceType
 {
     Water,
@@ -49,9 +73,9 @@ public class BuildableSO : ScriptableObject
     public List<SpawnType> spawnList;
     public float spawnInterval;
 
-    public bool CanBeBuiltOn(TileBase tile)
+    public bool CanBeBuiltOn(Tile tile)
     {
-        return canBuildOn.Contains(BuildableDictionary.Instance.GetTileType(tile));
+        return canBuildOn.Contains(GroundDictionary.Instance.GetTileType(tile));
     }
     public bool CheckCost()
     {

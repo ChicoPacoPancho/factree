@@ -1829,15 +1829,9 @@ MonoBehaviour:
   scale: 1
   plantList: {fileID: 11400000, guid: 8538954e64dc8eb4286ce76a62396529, type: 2}
   changeSO: {fileID: 0}
-  startTile: {fileID: 11400000, guid: d95d4a6e0e49f5547a7153747f017e09, type: 2}
+  selectedTile: {fileID: 0}
   cityMap: {fileID: 1910468141}
   selectionSquare: {fileID: 564341495}
-  baseTiles:
-  - {fileID: 11400000, guid: 5460f9f1ef3ab6040bfdbb3395b2583d, type: 2}
-  - {fileID: 11400000, guid: 4cfba1d13fd51db4481867cb71bb06ef, type: 2}
-  - {fileID: 11400000, guid: d88c8b309e8eb484ba28b5491dd3fcfb, type: 2}
-  - {fileID: 11400000, guid: d95d4a6e0e49f5547a7153747f017e09, type: 2}
-  - {fileID: 11400000, guid: 459fa64c2b3059b4da493bbad7fb5101, type: 2}
 --- !u!4 &853846298
 Transform:
   m_ObjectHideFlags: 0
@@ -2444,6 +2438,8 @@ GameObject:
   - component: {fileID: 1888797401}
   - component: {fileID: 1888797400}
   - component: {fileID: 1888797402}
+  - component: {fileID: 1888797403}
+  - component: {fileID: 1888797404}
   m_Layer: 0
   m_Name: ResourceManager
   m_TagString: Untagged
@@ -2491,6 +2487,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dictionary:
   - tileType: 0
+    tile: {fileID: 11400000, guid: 4e5063e93b024824dadd9f5aa430517b, type: 2}
+  - tileType: 1
+    tile: {fileID: 11400000, guid: 6b7022f981a90fe468fd937f1b0158a1, type: 2}
+  - tileType: 2
+    tile: {fileID: 11400000, guid: 79c367accaee7c249a4d4cf1c2542d0e, type: 2}
+  - tileType: 3
+    tile: {fileID: 11400000, guid: d93e6d0a90acb8b459d3e12a7041a16a, type: 2}
+  - tileType: 4
+    tile: {fileID: 11400000, guid: 90b905cf1f060224989d16aab03ebc14, type: 2}
+  - tileType: 5
+    tile: {fileID: 11400000, guid: c9f204179de263d419823f22ec7bb141, type: 2}
+  - tileType: 6
+    tile: {fileID: 11400000, guid: 07bbdfc6efea7b542a39296ea51f7c88, type: 2}
+  - tileType: 7
+    tile: {fileID: 11400000, guid: 10a89db2ef728c84b988b828e5cec5db, type: 2}
+  - tileType: 8
+    tile: {fileID: 11400000, guid: e436940d20b3bc3419bb5a7e0f50a46f, type: 2}
+  - tileType: 9
+    tile: {fileID: 11400000, guid: 54c2ad66e5fb7d240975c050c5c0afb4, type: 2}
+--- !u!114 &1888797403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888797399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ac2e85ccf20764aaa0f7826c9f724a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dictionary:
+  - tileType: 0
     tile: {fileID: 11400000, guid: d95d4a6e0e49f5547a7153747f017e09, type: 2}
   - tileType: 3
     tile: {fileID: 11400000, guid: 4cfba1d13fd51db4481867cb71bb06ef, type: 2}
@@ -2500,6 +2529,31 @@ MonoBehaviour:
     tile: {fileID: 11400000, guid: 459fa64c2b3059b4da493bbad7fb5101, type: 2}
   - tileType: 4
     tile: {fileID: 11400000, guid: d88c8b309e8eb484ba28b5491dd3fcfb, type: 2}
+--- !u!114 &1888797404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888797399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7c62d9a39054f4a8ce8791806f2d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dictionary:
+  - tileType: 0
+    tile: {fileID: 11400000, guid: 38b0c640e6cd0b645b57746cf6d68968, type: 2}
+  - tileType: 1
+    tile: {fileID: 11400000, guid: c9291212c1b6f274082c562f99d665e9, type: 2}
+  - tileType: 2
+    tile: {fileID: 11400000, guid: 436dfbd133c74cc4eaf374e150a271b0, type: 2}
+  - tileType: 3
+    tile: {fileID: 11400000, guid: 49015e073be1b2a478399c940ec8bc40, type: 2}
+  - tileType: 4
+    tile: {fileID: 11400000, guid: b7c516bf7f3273b4583ba9cd81b506ce, type: 2}
+  - tileType: 5
+    tile: {fileID: 11400000, guid: 1528f2399987b234f90d1fc62e626a96, type: 2}
 --- !u!1 &1910468138
 GameObject:
   m_ObjectHideFlags: 0

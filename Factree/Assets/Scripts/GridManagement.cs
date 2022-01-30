@@ -20,10 +20,10 @@ public class GridManagement : MonoBehaviour
     
     [SerializeField] PlantsSO plantList;
     [SerializeField] BuildableSO changeSO;
-    [SerializeField] Tile startTile;
+    [SerializeField] Tile selectedTile;
     [SerializeField] Tilemap cityMap;
-    [SerializeField] GameObject selectionSquare;
-    [SerializeField] List<Tile> baseTiles;
+    [SerializeField] GameObject selectionSquare;    
+   
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,8 @@ public class GridManagement : MonoBehaviour
         cityGrid = new CityGrid<CityMapGridObject>(12, 12, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
         
         cityVisual.SetGrid(cityGrid);
+
+        selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Concrete);
 
         for (i = 0; i < 12; i++)
             for (j = 0; j < 12; j++)
@@ -47,76 +49,88 @@ public class GridManagement : MonoBehaviour
                 {
                     //Vector3Int tile = cityMap.WorldToCell(new Vector3(i, j, 0));
                     CityMapGridObject hmgo = cityGrid.GetGridObject(i, j);
-                    hmgo.BaseTile = baseTiles[3];
+                    hmgo.BaseTile = selectedTile;
                 }
             }
 
         // Build up base tiles
         // Road
+        selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Asphalt);
         for (i=3; i<=4; i++)
             for(j=0;j<=10;j++)            
-                cityGrid.GetGridObject(i, j).BaseTile = baseTiles[2];
+                cityGrid.GetGridObject(i, j).BaseTile = selectedTile;
         // Soil
+        selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Soil);
         for (i = 7; i <= 9; i++)
             for (j = 3; j <= 5; j++)
-                cityGrid.GetGridObject(i, j).BaseTile = baseTiles[1];
+                cityGrid.GetGridObject(i, j).BaseTile = selectedTile;
         // World Tree
-        cityGrid.GetGridObject(8, 4).BaseTile = baseTiles[0];
+        selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Grass);
+        cityGrid.GetGridObject(8, 4).BaseTile = selectedTile;
 
         // Water
+        selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Water);
         for (j = 3; j <= 7; j++)
-            cityGrid.GetGridObject(10, j).BaseTile = baseTiles[4];
-        cityGrid.GetGridObject(9, 2).BaseTile = baseTiles[4];
-        cityGrid.GetGridObject(8, 1).BaseTile = baseTiles[4];
-        cityGrid.GetGridObject(7, 0).BaseTile = baseTiles[4];
+            cityGrid.GetGridObject(10, j).BaseTile = selectedTile;
+        cityGrid.GetGridObject(9, 2).BaseTile = selectedTile;
+        cityGrid.GetGridObject(8, 1).BaseTile = selectedTile;
+        cityGrid.GetGridObject(7, 0).BaseTile = selectedTile;
 
 
 
         // Build up Objects
         // World Tree
-        cityGrid.GetGridObject(8, 4).ObjectTile = plantList.plantList[6];
+        selectedTile = BuildableDictionary.Instance.GetTile(BuildableTileType.RootTree).baseImage;
+        cityGrid.GetGridObject(8, 4).ObjectTile = selectedTile;
+
         // Dumpster
-        cityGrid.GetGridObject(8, 6).ObjectTile = plantList.plantList[0];
-        cityGrid.GetGridObject(8, 5).ObjectTile = plantList.plantList[0];
-        cityGrid.GetGridObject(2, 6).ObjectTile = plantList.plantList[0];
-        cityGrid.GetGridObject(2, 5).ObjectTile = plantList.plantList[0];
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Dumpster);
+        cityGrid.GetGridObject(8, 6).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(8, 5).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(2, 6).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(2, 5).ObjectTile = selectedTile;
 
         // Observatory
-        cityGrid.GetGridObject(5, 2).ObjectTile = plantList.plantList[1];
-        cityGrid.GetGridObject(7, 5).ObjectTile = plantList.plantList[1];
-        cityGrid.GetGridObject(1, 7).ObjectTile = plantList.plantList[1];
-        cityGrid.GetGridObject(1, 6).ObjectTile = plantList.plantList[1];
-        cityGrid.GetGridObject(0, 5).ObjectTile = plantList.plantList[1];
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Observatory);
+        cityGrid.GetGridObject(5, 2).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(7, 5).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(1, 7).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(1, 6).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(0, 5).ObjectTile = selectedTile;
 
         // Mall
-        cityGrid.GetGridObject(1, 3).ObjectTile = plantList.plantList[2];
-        cityGrid.GetGridObject(1, 4).ObjectTile = plantList.plantList[2];
-        cityGrid.GetGridObject(9, 5).ObjectTile = plantList.plantList[2];
-        cityGrid.GetGridObject(7, 3).ObjectTile = plantList.plantList[2];
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Mall);
+        cityGrid.GetGridObject(1, 3).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(1, 4).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(9, 5).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(7, 3).ObjectTile = selectedTile;
 
-        // Observatory
-        cityGrid.GetGridObject(8, 9).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(5, 9).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(8, 7).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(6, 1).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(6, 0).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(5, 0).ObjectTile = plantList.plantList[3];
-        cityGrid.GetGridObject(5, 1).ObjectTile = plantList.plantList[3];
+        // Industry
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Industry);
+        cityGrid.GetGridObject(8, 9).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(5, 9).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(8, 7).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(6, 1).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(6, 0).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(5, 0).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(5, 1).ObjectTile = selectedTile;
 
         // Car
-        cityGrid.GetGridObject(7, 9).ObjectTile = plantList.plantList[4];
-        cityGrid.GetGridObject(7, 8).ObjectTile = plantList.plantList[4];
-        cityGrid.GetGridObject(6, 8).ObjectTile = plantList.plantList[4];
-        cityGrid.GetGridObject(5, 8).ObjectTile = plantList.plantList[4];
-        cityGrid.GetGridObject(6, 6).ObjectTile = plantList.plantList[4];        
-        cityGrid.GetGridObject(6, 5).ObjectTile = plantList.plantList[4];
-        cityGrid.GetGridObject(4, 6).ObjectTile = plantList.plantList[4];
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.Car);
+        cityGrid.GetGridObject(7, 9).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(7, 8).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(6, 8).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(5, 8).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(6, 6).ObjectTile = selectedTile;        
+        cityGrid.GetGridObject(6, 5).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(4, 6).ObjectTile = selectedTile;
 
         // Skyscraper
-        cityGrid.GetGridObject(2, 7).ObjectTile = plantList.plantList[5];
-        cityGrid.GetGridObject(2, 8).ObjectTile = plantList.plantList[5];
-        cityGrid.GetGridObject(2, 9).ObjectTile = plantList.plantList[5];
-        cityGrid.GetGridObject(8, 2).ObjectTile = plantList.plantList[5];
+        selectedTile = GarbageDictionary.Instance.GetTile(GarbageTileType.SkyScraper);
+        cityGrid.GetGridObject(2, 7).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(2, 8).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(2, 9).ObjectTile = selectedTile;
+        cityGrid.GetGridObject(8, 2).ObjectTile = selectedTile;
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
