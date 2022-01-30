@@ -33,7 +33,7 @@ public class ResourceManager : MonoBehaviour
                             obj.buildableSO.AddIncome();
                         } else
                         {
-                            Debug.Log("Not enough resources for upkeep!");
+                            //Debug.Log("Not enough resources for upkeep!");
                         }
                     }
                 }
