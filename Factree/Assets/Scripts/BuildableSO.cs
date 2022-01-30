@@ -62,7 +62,7 @@ public class BuildableSO : ScriptableObject
     public List<ResourceItem> resourceOut;
     public List<ResourceItem> builtCost;
     public List<BaseTileType> canBuildOn;
-    public List<SpawnType> spawnList;
+    public List<GameObject> spawnList;
     public float spawnInterval;
 
     public bool CanBeBuiltOn(Tile tile)
@@ -111,6 +111,14 @@ public class BuildableSO : ScriptableObject
         foreach (ResourceItem ri in resourceOut)
         {
             ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count);
+        }
+    }
+
+    public void SpawnSpawns(Vector2 position)
+    {
+        foreach (GameObject obj in spawnList)
+        {
+            Instantiate(obj, position, Quaternion.identity, null);
         }
     }
 }
