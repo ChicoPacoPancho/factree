@@ -44,13 +44,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc685e6897387af48b58b0669e4ae14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectGrid: {fileID: 0}
   movingError: 0.01
-  movingSpeed: 1
+  movingSpeed: 0.6
   destination: {x: -1, y: 0, z: 0}
   destination2: {x: 2, y: 0, z: 0}
   backAndForth: 1
   flipSprite: 1
+  spawnType: 1
+  focus: {x: 0, y: 0, z: 0}
+  grassGrower: {fileID: 0}
+  dumpRemover: {fileID: 0}
 --- !u!1 &1020021937835757981
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +124,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 20
   m_Sprite: {fileID: -1540059275231109329, guid: d9b1ec0a547fccf40b4d738ac735529f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

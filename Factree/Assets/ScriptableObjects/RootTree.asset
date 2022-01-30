@@ -25,5 +25,5 @@ MonoBehaviour:
   - resourceType: 4
     count: 40
   canBuildOn: 0300000002000000
-  spawnList: 
+  spawnList: []
   spawnInterval: 0
