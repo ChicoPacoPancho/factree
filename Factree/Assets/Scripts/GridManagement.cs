@@ -211,10 +211,11 @@ public class GridManagement : MonoBehaviour
                                     Debug.Log("Cannot be placed here!");
                                 }
                             }
-                        }
-                        else if (selectedObject.PlantTile != null)
-                        {
-                            selectedObject.PlantTile.DoAbilitiesOnTarget(selectedObject.x, selectedObject.y, hmgo.x, hmgo.y);
+
+                            else if (selectedObject.PlantTile != null)
+                            {
+                                selectedObject.PlantTile.DoAbilitiesOnTarget(selectedObject.x, selectedObject.y, hmgo.x, hmgo.y);
+                            }
                         }
                     }
 
