@@ -22,15 +22,7 @@ public enum BaseTileType
     Asphalt
 }
 
-public enum GarbageTileType
-{
-    Dumpster,
-    Observatory,
-    Mall,
-    Industry,
-    Car,
-    SkyScraper   
-}
+
 
 public enum BuildableTileType
 {
@@ -62,7 +54,7 @@ public enum SpawnType
     Goat
 }
 
-[CreateAssetMenu(menuName = "Buildable/Thing")]
+[CreateAssetMenu(menuName = "Object/Buildable")]
 public class BuildableSO : ScriptableObject
 {
     public Tile baseImage;
