@@ -9,7 +9,7 @@ public class GarbageDictionary : MonoBehaviour
     public struct GarbageTileDictionary
     {
         public GarbageTileType tileType;
-        public Tile tile;
+        public GarbageSO item;
     }
 
     public List<GarbageTileDictionary> dictionary;
@@ -21,23 +21,23 @@ public class GarbageDictionary : MonoBehaviour
     }
 
 
-    public Tile GetTile(GarbageTileType type)
+    public GarbageSO GetTile(GarbageTileType type)
     {
         foreach (var dict in dictionary)
         {
             if (dict.tileType == type)
             {
-                return dict.tile;
+                return dict.item;
             }
         }
         return null;
     }
 
-    public GarbageTileType GetTileType(Tile tile)
+    public GarbageTileType GetTileType(GarbageSO item)
     {
         foreach (var dict in dictionary)
         {
-            if (dict.tile == tile)
+            if (dict.item == item)
             {
                 return dict.tileType;
             }
