@@ -44,6 +44,8 @@ public class SelectionPanel : MonoBehaviour
         {
             Debug.Log(card.label + " was chosen");
 
+            GetComponent<AudioSource>().Play();
+
             var GM = FindObjectOfType<GridManagement>();
             GM.TriggerSelectionButtonClicked(card.tile.sprite);
         }
