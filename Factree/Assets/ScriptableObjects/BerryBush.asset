@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: BerryBush
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
-  resourceIn: []
+  baseImage: {fileID: 11400000, guid: 06df2a9a35823b84985b40e2281a8a39, type: 2}
+  resourceIn:
+  - resourceType: 0
+    count: 10
   resourceOut: []
-  builtCost: []
-  canBuildOn: 
-  spawnList: 
+  builtCost:
+  - resourceType: 1
+    count: 20
+  - resourceType: 2
+    count: 20
+  - resourceType: 3
+    count: 20
+  canBuildOn: 0200000003000000
+  spawnList: 01000000
   spawnInterval: 0
