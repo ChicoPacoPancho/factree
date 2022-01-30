@@ -7,6 +7,8 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager Instance { get; private set; }
 
+    private bool victoryYet = false;
+
     private void Awake()
     {
         Instance = this;
@@ -19,12 +21,20 @@ public class ResourceManager : MonoBehaviour
             
             GridManagement grid = FindObjectOfType<GridManagement>();
 
+            bool containsAllGrass = true;
+
             // Tally up all used and produced resources
             for (int x = 0; x < grid.cityGrid.Width; x++)
             {
                 for (int y = 0; y < grid.cityGrid.Height; y++)
                 {
                     var obj = grid.cityGrid.GetGridObject(x, y);
+                    if (obj != null && (GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Asphalt || 
+                        GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Concrete ||
+                        GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Soil))
+                    {
+                        containsAllGrass = false;
+                    }
                     if (obj != null && obj.PlantTile != null)
                     {
                         if (obj.PlantTile.CheckUpkeep())
@@ -37,6 +47,13 @@ public class ResourceManager : MonoBehaviour
                         }
                     }
                 }
+            }
+
+            Debug.Log(containsAllGrass);
+            if (!victoryYet && containsAllGrass)
+            {
+                victoryYet = true;
+                FindObjectOfType<VictoryScreen>().ShowVictory();
             }
         }
     }
