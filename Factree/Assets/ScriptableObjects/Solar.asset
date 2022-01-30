@@ -20,10 +20,10 @@ MonoBehaviour:
   - resourceType: 1
     count: 40
   builtCost:
-  - resourceType: 1
-    count: 10
   - resourceType: 2
     count: 10
-  canBuildOn: 0300000002000000
-  spawnList: 
+  canBuildOn: 02000000
+  spawnList: []
   spawnInterval: 0
+  collectResourceAbilities: []
+  removesPlants: 0

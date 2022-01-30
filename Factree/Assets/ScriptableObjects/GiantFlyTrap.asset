@@ -19,10 +19,10 @@ MonoBehaviour:
   resourceOut: []
   builtCost:
   - resourceType: 1
-    count: 10
-  - resourceType: 2
-    count: 10
+    count: 60
   - resourceType: 5
+    count: 60
+  - resourceType: 4
     count: 10
   canBuildOn: 0300000002000000
   spawnList:

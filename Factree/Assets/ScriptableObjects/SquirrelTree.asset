@@ -21,12 +21,14 @@ MonoBehaviour:
     count: 60
   builtCost:
   - resourceType: 1
-    count: 20
+    count: 10
   - resourceType: 2
-    count: 20
+    count: 10
   - resourceType: 4
-    count: 40
-  canBuildOn: 0300000002000000
+    count: 10
+  canBuildOn: 02000000
   spawnList:
   - {fileID: 8176619236461054479, guid: 8f0a38b877e16d34ca574c5f93ae5a18, type: 3}
   spawnInterval: 0
+  collectResourceAbilities: []
+  removesPlants: 0
