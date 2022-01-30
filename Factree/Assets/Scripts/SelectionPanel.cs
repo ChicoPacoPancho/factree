@@ -35,7 +35,7 @@ public class SelectionPanel : MonoBehaviour
         Debug.Log( card.label + " was chosen");
 
         var GM = FindObjectOfType<GridManagement>();
-        GM.TriggerSelectionButtonClicked(card.sprite);
+        GM.TriggerSelectionButtonClicked(card.tile);
     }
 
 }
