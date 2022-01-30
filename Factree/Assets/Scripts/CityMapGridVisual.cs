@@ -42,7 +42,10 @@ public class CityMapGridVisual : MonoBehaviour
             {
                 CityMapGridObject gridValue = grid.GetGridObject(x, y);
                 cityMap.SetTile(new Vector3Int(x, y, 0), gridValue.BaseTile);
-                objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.ObjectTile);
+                if (gridValue.PlantTile != null)
+                {
+                    objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.PlantTile.baseImage);
+                }
             }
 
         
@@ -61,26 +64,30 @@ public class CityMapGridObject
         set
         { baseTile = value; grid.TriggerGridObjectChanged(x, y);  }
     }
-    //Plant/Building object
-    Tile objectTile;
-    public Tile ObjectTile
+    //Plant object
+    BuildableSO plantTile;
+    public BuildableSO PlantTile
     {
         get
-        { return objectTile; }
+        { return plantTile; }
         set
-        { objectTile = value; grid.TriggerGridObjectChanged(x, y); }
+        { plantTile = value; grid.TriggerGridObjectChanged(x, y); }
     }
     // Ph float
     // Soil Progress float
     // Resource object
+    GarbageSO resource;
+    public GarbageSO Resource
+    {
+        get { return resource; }
+        set { resource = value; }
+    }
 
     const int MIN = 0;
     const int MAX = 100;
 
     private CityGrid<CityMapGridObject> grid;
     public int x, y, value;
-
-    public BuildableSO buildableSO;
 
     public CityMapGridObject(CityGrid<CityMapGridObject> grid, int x, int y)
     {
