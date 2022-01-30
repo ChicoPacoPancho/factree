@@ -121,13 +121,13 @@ public class MovingAnimal : MonoBehaviour
     void GoatBehaviour()
     {
         var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
-        if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
+        /*if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
         {
             if (GetGarbageTypeAt(focus) == GarbageTileType.Dumpster)
             {
                 grid.cityGrid.GetGridObject(focus.x, focus.y).Resource.SubtractResource(bush.resourceOut[0].count);
             }
-        }
+        }*/
 
         if (!bush.CheckUpkeep())
         {
@@ -151,13 +151,13 @@ public class MovingAnimal : MonoBehaviour
     void SquirrelBehaviour()
     {
         var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
-        if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
+        /*if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
         {
             if (GetGarbageTypeAt(focus) == GarbageTileType.Mall)
             {
                 grid.cityGrid.GetGridObject(focus.x, focus.y).Resource.SubtractResource(bush.resourceOut[0].count);
             }
-        }
+        }*/
 
         if (!bush.CheckUpkeep())
         {
@@ -222,7 +222,7 @@ public class MovingAnimal : MonoBehaviour
             for (int y = 0; y < grid.cityGrid.Height; y++)
             {
                 var obj = grid.cityGrid.GetGridObject(x, y);
-                if (obj != null && obj.BaseTile != null)
+                if (obj != null && obj.Resource != null)
                 {
                     if (GarbageDictionary.Instance.GetTileType(obj.Resource) == type)
                     {
