@@ -143,7 +143,7 @@ MonoBehaviour:
     gameObject: {fileID: 0}
     textObject: {fileID: 0}
   - label: Nitrogen
-    type: 0
+    type: 2
     quanitity: 0
     sprite: {fileID: -2248273014285675650, guid: 93b9c76356a2fe046b5a589f59502daa, type: 3}
     gameObject: {fileID: 0}
