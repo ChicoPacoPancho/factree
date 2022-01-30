@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
 
-public class GridTesting : MonoBehaviour
+public class GridManagement : MonoBehaviour
 {
     CityGrid<bool>[] grid;
     public CityGrid<CityMapGridObject> cityGrid;
@@ -20,12 +20,12 @@ public class GridTesting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cityGrid = new CityGrid<CityMapGridObject>(20, 20, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
+        cityGrid = new CityGrid<CityMapGridObject>(12, 12, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
         
         cityVisual.SetGrid(cityGrid);
 
-        for (int i = 0; i < 20; i++)
-            for (int j = 0; j < 20; j++)
+        for (int i = 0; i < 12; i++)
+            for (int j = 0; j < 12; j++)
             {
                 int newI, newJ;
                 newI = 5 - i;
@@ -46,7 +46,13 @@ public class GridTesting : MonoBehaviour
         position.z = 0;
         Vector3Int tile = cityMap.WorldToCell(position);
         CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x, tile.y);
-
+        if (hmgo == null)
+        {
+            selectionSquare.SetActive(false);
+            return;
+        }
+        
+        
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -65,9 +71,12 @@ public class GridTesting : MonoBehaviour
         }
 
         // Get the position of the mouse and convert it to cells
-        Vector3 roundedPos = cityMap.CellToWorld(tile);
-        selectionSquare.transform.position = roundedPos;
-               
+        if (hmgo.BaseTile != null)
+        {
+            selectionSquare.SetActive(true);
+            Vector3 roundedPos = cityMap.CellToWorld(tile);
+            selectionSquare.transform.position = roundedPos;
+        }
 
     }
 
