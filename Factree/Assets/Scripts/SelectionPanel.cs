@@ -38,21 +38,6 @@ public class SelectionPanel : MonoBehaviour
         // Update is called once per frame
         void Update()
         {
-
-<<<<<<< Updated upstream
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void OnButtonClick(Card card)
-    {
-        Debug.Log( card.label + " was chosen");
-    }
-}
-
-=======
         }
 
         public void OnButtonClick(Card card)
@@ -70,7 +55,6 @@ public class SelectionPanel : MonoBehaviour
 
 }
 
->>>>>>> Stashed changes
 [Serializable]
 public class Card
 {
