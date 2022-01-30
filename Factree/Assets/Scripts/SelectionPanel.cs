@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class SelectionPanel : MonoBehaviour
@@ -15,7 +16,7 @@ public class SelectionPanel : MonoBehaviour
         foreach (Card card in cards)
         {
             var newItem = Instantiate(prefab, transform);
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = card.sprite;
+            newItem.transform.Find("Image").GetComponent<Image>().sprite = card.tile.sprite;
             newItem.transform.Find("Label").GetComponent<Text>().text = card.label;
             newItem.transform.GetComponentInChildren<Button>().onClick.AddListener(() => OnButtonClick(card));
             //newItem.transform.Find("Number").GetComponent<Text>().text = "" + r.quanitity;
@@ -45,7 +46,7 @@ public class SelectionPanel : MonoBehaviour
 public class Card
 {
     public string label;
-    public Sprite sprite;
+    public Tile tile;
     public GameObject gameObject;
 }
 
