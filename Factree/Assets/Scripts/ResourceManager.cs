@@ -5,6 +5,12 @@ using System;
 
 public class ResourceManager : MonoBehaviour
 {
+    public static ResourceManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     public event EventHandler<ResourceChangedEventArgs> OnResourceChanged;
     public class ResourceChangedEventArgs : EventArgs
@@ -115,6 +121,72 @@ public class ResourceManager : MonoBehaviour
 
             default:
                 return 0;
+        }
+    }
+
+    public void SetResourceAmountByType(ResourceType type, int number)
+    {
+        switch (type)
+        {
+            case ResourceType.Water:
+                waterAmount = number;
+                return;
+
+            case ResourceType.Energy:
+                energyAmount = number;
+                return;
+
+            case ResourceType.Nitrogen:
+                nitrogenAmount = number;
+                return;
+
+            case ResourceType.Phosphorous:
+                phosphorusAmount = number;
+                return;
+
+            case ResourceType.Potassium:
+                potassiumAmount = number;
+                return;
+
+            case ResourceType.Sulfur:
+                sulfurAmount = number;
+                return;
+
+            default:
+                return;
+        }
+    }
+
+    public void AddResourceAmountByType(ResourceType type, int number)
+    {
+        switch (type)
+        {
+            case ResourceType.Water:
+                waterAmount += number;
+                return;
+
+            case ResourceType.Energy:
+                energyAmount += number;
+                return;
+
+            case ResourceType.Nitrogen:
+                nitrogenAmount += number;
+                return;
+
+            case ResourceType.Phosphorous:
+                phosphorusAmount += number;
+                return;
+
+            case ResourceType.Potassium:
+                potassiumAmount += number;
+                return;
+
+            case ResourceType.Sulfur:
+                sulfurAmount += number;
+                return;
+
+            default:
+                return;
         }
     }
 }

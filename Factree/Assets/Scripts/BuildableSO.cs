@@ -8,9 +8,9 @@ using UnityEngine.Tilemaps;
 public struct ResourceItem
 {
     [SerializeField]
-    ResourceType resourceType;
+    public ResourceType resourceType;
     [SerializeField]
-    int count;
+    public int count;
 }
 
 public enum BaseTileType
@@ -48,4 +48,27 @@ public class BuildableSO : ScriptableObject
     public List<BaseTileType> canBuildOn;
     public List<SpawnType> spawnList;
     public float spawnInterval;
+
+    public bool CanBeBuiltOn(TileBase tile)
+    {
+        return canBuildOn.Contains(BuildableDictionary.Instance.GetTileType(tile));
+    }
+    public bool CheckCost()
+    {
+        foreach (ResourceItem ri in builtCost) {
+            var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
+            if (available < ri.count)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void SubtractCost()
+    {
+        foreach (ResourceItem ri in builtCost)
+        {
+            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, -ri.count);
+        }
+    }
 }

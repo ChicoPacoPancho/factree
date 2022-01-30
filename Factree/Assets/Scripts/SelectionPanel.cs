@@ -47,7 +47,7 @@ public class SelectionPanel : MonoBehaviour
             GetComponent<AudioSource>().Play();
 
             var GM = FindObjectOfType<GridManagement>();
-            GM.TriggerSelectionButtonClicked(card.tile);
+            GM.TriggerSelectionButtonClicked(card.scriptableObj);
         }
 
         public static string SplitCamelCase(string input)

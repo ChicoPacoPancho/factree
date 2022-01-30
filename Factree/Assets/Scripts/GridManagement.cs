@@ -10,7 +10,7 @@ public class GridManagement : MonoBehaviour
     public event EventHandler<OnSelectionButtonEventArgs> OnSelectionButtonClicked;
     public class OnSelectionButtonEventArgs : EventArgs
     {
-        public Tile selectedTile;
+        public BuildableSO selectedSO;
     }
         
     
@@ -19,7 +19,7 @@ public class GridManagement : MonoBehaviour
     [SerializeField] float scale;
 
     [SerializeField] PlantsSO plantList;
-    [SerializeField] Tile changeTile;
+    [SerializeField] BuildableSO changeSO;
     [SerializeField] Tile startTile;
     [SerializeField] Tilemap cityMap;
     [SerializeField] GameObject selectionSquare;
@@ -47,12 +47,13 @@ public class GridManagement : MonoBehaviour
                 }
             }
 
-        cityGrid.GetGridObject(5, 5).ObjectTile = changeTile;
+        if (changeSO != null)
+            cityGrid.GetGridObject(5, 5).ObjectTile = changeSO.baseImage;
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
     {
-        changeTile = e.selectedTile;
+        changeSO = e.selectedSO;
     }
 
     private void Update()
@@ -83,10 +84,32 @@ public class GridManagement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("Button Pressed: " + position);
-                if (hmgo != null)
+                if (hmgo != null && changeSO != null)
                 {
-                    Debug.Log("Setting new tile:" + position);
-                    hmgo.ObjectTile = changeTile;
+                    // Check first values before setting
+                    bool canBePlaced = changeSO.CanBeBuiltOn(hmgo.BaseTile);
+                    canBePlaced &= changeSO.CheckCost();
+
+                    if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
+                    {
+
+                        if (changeSO.CheckCost())
+                        {
+                            Debug.Log("Setting new tile:" + position);
+                            hmgo.ObjectTile = changeSO.baseImage;
+                            changeSO.SubtractCost();
+                            GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                        }
+                        else
+                        {
+                            Debug.Log("Not enough resources!");
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Cannot be placed here!");
+                    }
+
                 }
             }
 
@@ -105,11 +128,11 @@ public class GridManagement : MonoBehaviour
      
     }
 
-    public void TriggerSelectionButtonClicked(Tile selection)
+    public void TriggerSelectionButtonClicked(BuildableSO selection)
     {
         if (OnSelectionButtonClicked != null)
         {
-            OnSelectionButtonClicked(this, new OnSelectionButtonEventArgs { selectedTile = selection });
+            OnSelectionButtonClicked(this, new OnSelectionButtonEventArgs { selectedSO = selection });
         }
     }
 }
