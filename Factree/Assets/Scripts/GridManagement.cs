@@ -145,6 +145,7 @@ public class GridManagement : MonoBehaviour
         position.z = 0;
         Vector3Int tile = cityMap.WorldToCell(position);
         CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x, tile.y);
+        Vector3 roundedPos = cityMap.CellToWorld(tile);
 
         selectionSquare.SetActive(false);
 
@@ -182,6 +183,11 @@ public class GridManagement : MonoBehaviour
                             hmgo.buildableSO = changeSO;
                             changeSO.SubtractCost();
                             GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                            // Spawn any immediate spawns
+                            if (changeSO.spawnInterval == 0)
+                            {
+                                changeSO.SpawnSpawns(roundedPos);
+                            }
                         }
                         else
                         {
@@ -199,7 +205,6 @@ public class GridManagement : MonoBehaviour
             // Get the position of the mouse and convert it to cells
             if (hmgo.BaseTile != null)
             {                
-                Vector3 roundedPos = cityMap.CellToWorld(tile);
                 selectionSquare.transform.position = roundedPos;
             }
         }
