@@ -182,7 +182,7 @@ public class GridManagement : MonoBehaviour
 
                         if (hmgo.Resource == null)
                         {
-                            if (hmgo.PlantTile == null)
+                            if (hmgo.PlantTile == null || changeSO.removesPlants)
                             {
                                 if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
                                 {
@@ -190,31 +190,49 @@ public class GridManagement : MonoBehaviour
                                     if (changeSO.CheckCost() || cheatMode)
                                     {
                                         Debug.Log("Setting new tile:" + position);
-                                        hmgo.PlantTile = changeSO;
-                                        changeSO.SubtractCost();
-                                        GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
-                                        // Spawn any immediate spawns
-                                        if (changeSO.spawnInterval == 0)
+                                        if (!changeSO.removesPlants)
                                         {
-                                            changeSO.SpawnSpawns(roundedPos);
+                                            hmgo.PlantTile = changeSO;
+                                            changeSO.SubtractCost();
+                                            GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                                            // Spawn any immediate spawns
+                                            if (changeSO.spawnInterval == 0)
+                                            {
+                                                changeSO.SpawnSpawns(roundedPos);
+                                            }
                                         }
+                                        else
+                                        {
+                                            if (hmgo.PlantTile.name != "TheGreatTree")
+                                            {
+                                                hmgo.PlantTile = null;
+                                                GameObject.Find("DestroySound").GetComponent<AudioSource>().Play();
+                                            }
+                                            else
+                                                MessagePanel.Instance.ShowMessage("The Great Tree refuses to be removed");
 
-
+                                        }
                                     }
                                     else
                                     {
-                                        Debug.Log("Not enough resources!");
+                                        MessagePanel.Instance.ShowMessage("Not enough resources to plant this");
                                     }
                                 }
                                 else
                                 {
-                                    Debug.Log("Cannot be placed here!");
+                                    MessagePanel.Instance.ShowMessage("Selected plant cannot grow on this tile");
                                 }
+                            } else
+                            {
+                                MessagePanel.Instance.ShowMessage("There is already a plant here");
                             }
                         }
                         else if (selectedObject.PlantTile != null)
                         {
                             selectedObject.PlantTile.DoAbilitiesOnTarget(selectedObject.x, selectedObject.y, hmgo.x, hmgo.y);
+                        } else
+                        {
+                            MessagePanel.Instance.ShowMessage("Use a Fly Trap or a Wrecking Ball to remove ruins first");
                         }
                     }
 

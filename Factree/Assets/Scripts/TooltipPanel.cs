@@ -12,6 +12,8 @@ public class TooltipPanel : MonoBehaviour
 
     public GameObject prefab;
 
+    public Sprite noneSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,9 @@ public class TooltipPanel : MonoBehaviour
         if (setObject != null) label = setObject.name;
         if (setRObject != null) label = setRObject.name;
 
-        Sprite sprite = null;
-        if (setObject != null) sprite = setObject.baseImage.sprite;
-        if (setRObject != null) sprite = setRObject.baseImage.sprite;
+        Sprite sprite = noneSprite;
+        if (setObject != null && setObject.baseImage != null) sprite = setObject.baseImage.sprite;
+        if (setRObject != null && setRObject.baseImage != null) sprite = setRObject.baseImage.sprite;
 
         card.GetComponentInChildren<Text>().text = SelectionPanel.SplitCamelCase(label);
         card.GetComponentInChildren<Image>().sprite = sprite;
