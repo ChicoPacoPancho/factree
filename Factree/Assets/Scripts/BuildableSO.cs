@@ -1,22 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
+[Serializable]
 public struct ResourceItem
 {
-    string name;
+    [SerializeField]
+    ResourceType resourceType;
+    [SerializeField]
     int count;
 }
 
 public enum BaseTileType
 {
-    Concrete, 
-    Water, 
-    Grass, 
-    Soil, 
+    Concrete,
+    Water,
+    Grass,
+    Soil,
     Asphalt
+}
+
+public enum ResourceType
+{
+    Water,
+    Energy,
+    Nitrogen,
+    Sulfur,
+    Potassium,
+    Phosphorous
 }
 
 public enum SpawnType

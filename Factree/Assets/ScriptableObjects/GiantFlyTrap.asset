@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
+  m_Name: GiantFlyTrap
+  m_EditorClassIdentifier: 
+  baseImage: {fileID: 11400000, guid: 836dc6d708db3fb4c801c1ee7b4649f0, type: 2}
+  resourceIn:
+  - resourceType: 0
+    count: 10
+  resourceOut: []
+  builtCost:
+  - resourceType: 1
+    count: 10
+  - resourceType: 2
+    count: 10
+  - resourceType: 5
+    count: 10
+  canBuildOn: 0300000002000000
+  spawnList: 
+  spawnInterval: 0

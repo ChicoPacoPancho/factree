@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
+  m_Name: MangroveTree
+  m_EditorClassIdentifier: 
+  baseImage: {fileID: 11400000, guid: 34834725f09cc5342895deb30ff2c34c, type: 2}
+  resourceIn:
+  - resourceType: 1
+    count: 10
+  resourceOut:
+  - resourceType: 0
+    count: 60
+  builtCost:
+  - resourceType: 1
+    count: 20
+  - resourceType: 2
+    count: 20
+  - resourceType: 5
+    count: 20
+  canBuildOn: 01000000
+  spawnList: 
+  spawnInterval: 0
