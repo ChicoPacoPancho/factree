@@ -15,6 +15,8 @@ public class SelectionPanel : MonoBehaviour
     private TooltipPanel tooltipPanel;
     private bool scrollToTop = false;
 
+    public Sprite noneSprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,10 @@ public class SelectionPanel : MonoBehaviour
                 card.label = SplitCamelCase(card.scriptableObj.name);
                 card.tile = card.scriptableObj.baseImage;
             }
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = card.tile.sprite;
+            var sprite = noneSprite;
+            if (card.tile) sprite = card.tile.sprite;
+
+            newItem.transform.Find("Image").GetComponent<Image>().sprite = sprite;
             newItem.transform.Find("Label").GetComponent<Text>().text = card.label;
             newItem.transform.GetComponentInChildren<Button>().onClick.AddListener(() => OnButtonClick(card));
 

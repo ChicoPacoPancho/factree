@@ -10,7 +10,7 @@ public struct ResourceItem
     [SerializeField]
     public ResourceType resourceType;
     [SerializeField]
-    public int count;
+    public float count;
 }
 
 public enum BaseTileType
@@ -69,6 +69,8 @@ public class BuildableSO : ScriptableObject
     public float spawnInterval;
     public List<CollectResourceAbility> collectResourceAbilities;
 
+    public bool removesPlants = false;
+
     public bool CanBeBuiltOn(Tile tile)
     {
         return canBuildOn.Contains(GroundDictionary.Instance.GetTileType(tile));
@@ -114,6 +116,7 @@ public class BuildableSO : ScriptableObject
     {
         foreach (ResourceItem ri in resourceOut)
         {
+            Debug.Log("Adding " + ri.count / 60f + ri.resourceType + " for a total of " + ResourceManager.Instance.GetResourceAmountByType(ri.resourceType));
             ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count/60f);
         }
     }
