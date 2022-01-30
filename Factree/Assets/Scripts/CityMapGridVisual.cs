@@ -81,6 +81,8 @@ public class CityMapGridObject
     private CityGrid<CityMapGridObject> grid;
     public int x, y, value;
 
+    public BuildableSO buildableSO;
+
     public CityMapGridObject(CityGrid<CityMapGridObject> grid, int x, int y)
     {
         this.grid = grid;

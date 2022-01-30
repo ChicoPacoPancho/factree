@@ -12,6 +12,37 @@ public class ResourceManager : MonoBehaviour
         Instance = this;
     }
 
+    public void Update()
+    {
+        // Do every second (approximately)
+        if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime)) {
+            
+            GridManagement grid = FindObjectOfType<GridManagement>();
+
+            // Tally up all used and produced resources
+            for (int x = 0; x < grid.cityGrid.Width; x++)
+            {
+                for (int y = 0; y < grid.cityGrid.Height; y++)
+                {
+                    var obj = grid.cityGrid.GetGridObject(x, y);
+                    if (obj != null && obj.buildableSO != null)
+                    {
+                        if (obj.buildableSO.CheckUpkeep())
+                        {
+                            obj.buildableSO.SubtractUpkeep();
+                            obj.buildableSO.AddIncome();
+                        } else
+                        {
+                            Debug.Log("Not enough resources for upkeep!");
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+
     public event EventHandler<ResourceChangedEventArgs> OnResourceChanged;
     public class ResourceChangedEventArgs : EventArgs
     {

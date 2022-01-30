@@ -97,6 +97,7 @@ public class GridManagement : MonoBehaviour
                         {
                             Debug.Log("Setting new tile:" + position);
                             hmgo.ObjectTile = changeSO.baseImage;
+                            hmgo.buildableSO = changeSO;
                             changeSO.SubtractCost();
                             GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
                         }

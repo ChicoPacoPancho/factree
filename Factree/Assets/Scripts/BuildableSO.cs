@@ -71,4 +71,30 @@ public class BuildableSO : ScriptableObject
             ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, -ri.count);
         }
     }
+    public bool CheckUpkeep()
+    {
+        foreach (ResourceItem ri in resourceIn)
+        {
+            var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
+            if (available < ri.count)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public void SubtractUpkeep()
+    {
+        foreach (ResourceItem ri in resourceIn)
+        {
+            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, -ri.count);
+        }
+    }
+    public void AddIncome()
+    {
+        foreach (ResourceItem ri in resourceOut)
+        {
+            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count);
+        }
+    }
 }
