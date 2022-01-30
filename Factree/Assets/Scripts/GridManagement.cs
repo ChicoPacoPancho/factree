@@ -226,7 +226,12 @@ public class GridManagement : MonoBehaviour
             if (hmgo.BaseTile != null)
             {
                 selectionSquare.transform.position = roundedPos;
-                FindObjectOfType<TooltipPanel>().SetData(hmgo.PlantTile);
+                if (hmgo.PlantTile)
+                    FindObjectOfType<TooltipPanel>().SetData(hmgo.PlantTile);
+                else if (hmgo.Resource)
+                    FindObjectOfType<TooltipPanel>().SetResourceData(hmgo.Resource);
+                else
+                    FindObjectOfType<TooltipPanel>().SetData(null);
             }
         }
     }
