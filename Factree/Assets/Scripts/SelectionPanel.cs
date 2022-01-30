@@ -49,7 +49,6 @@ public class SelectionPanel : MonoBehaviour
             entry.callback.AddListener((eventData) => { OnPointerExit(card); });
             trigger.triggers.Add(entry);
 
-
             //newItem.transform.Find("Number").GetComponent<Text>().text = "" + r.quanitity;
             card.gameObject = newItem;
         }
@@ -57,37 +56,49 @@ public class SelectionPanel : MonoBehaviour
         transform.parent.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 1);
         //transform.GetChild(0).GetComponent<Button>().Select();
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        int i;
+
+        for (i = 0; i < cards.Count; i++)
         {
-            
+            if (cards[i].scriptableObj.CheckCost())
+            {
+                cards[i].gameObject.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                cards[i].gameObject.GetComponent<Button>().interactable = false;
+            }
         }
+    }
 
-        public void OnButtonClick(Card card)
-        {
-            //Debug.Log(card.label + " selected");
-            MessagePanel.Instance.ShowMessage(card.label + " selected");
+    public void OnButtonClick(Card card)
+    {
+        //Debug.Log(card.label + " selected");
+        MessagePanel.Instance.ShowMessage(card.label + " selected");
 
-            GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
+               
+        var GM = FindObjectOfType<GridManagement>();
+        GM.TriggerSelectionButtonClicked(card.scriptableObj);
+    }
 
-            var GM = FindObjectOfType<GridManagement>();
-            GM.TriggerSelectionButtonClicked(card.scriptableObj);
-        }
+    public void OnPointerEnter(Card card)
+    {
+        tooltipPanel.SetData(card.scriptableObj);
+    }
 
-        public void OnPointerEnter(Card card)
-        {
-            tooltipPanel.SetData(card.scriptableObj);
-        }
+    public void OnPointerExit(Card card)
+    {
+        tooltipPanel.HidePanel();
+    }
 
-        public void OnPointerExit(Card card)
-        {
-            tooltipPanel.HidePanel();
-        }
-
-        public static string SplitCamelCase(string input)
-        {
-            return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
-        }
+    public static string SplitCamelCase(string input)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
+    }
 
 }
 
