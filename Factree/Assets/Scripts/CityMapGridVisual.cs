@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class CityMapGridVisual : MonoBehaviour
 {
-    CityGrid<CityMapGridObject> grid;
+    public CityGrid<CityMapGridObject> grid;
     [SerializeField] Tilemap cityMap;
     [SerializeField] Tilemap objectMap;
     
@@ -36,16 +36,35 @@ public class CityMapGridVisual : MonoBehaviour
     private void UpdateCityMapVisual()
     {
         int x, y;
-       
+
         for (x = 0; x < grid.Width; x++)
             for (y = 0; y < grid.Height; y++)
             {
                 CityMapGridObject gridValue = grid.GetGridObject(x, y);
                 cityMap.SetTile(new Vector3Int(x, y, 0), gridValue.BaseTile);
+
+                if (gridValue.PlantTile == null && gridValue.Resource == null)
+                {
+                    objectMap.SetTile(new Vector3Int(x, y, 0), null);
+                    continue;
+                }
+
                 if (gridValue.PlantTile != null)
                 {
                     objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.PlantTile.baseImage);
                 }
+                if (gridValue.Resource != null)
+                {
+                    objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.Resource.baseImage);
+                }
+                //else
+                //{
+                //    if (gridValue.Resource == null)
+                //    {
+                //        objectMap.SetTile(new Vector3Int(x, y, 0), null);
+                //    }
+                //}
+
             }
 
         
@@ -71,7 +90,16 @@ public class CityMapGridObject
         get
         { return plantTile; }
         set
-        { plantTile = value; grid.TriggerGridObjectChanged(x, y); }
+        {
+            if (value == null)
+            {
+                Debug.Log("Blank plant sent");
+            }
+                
+            plantTile = value;
+
+            Debug.Log("Is now blank" + (plantTile == null));
+            grid.TriggerGridObjectChanged(x, y); }
     }
     // Ph float
     // Soil Progress float
@@ -80,7 +108,7 @@ public class CityMapGridObject
     public GarbageSO Resource
     {
         get { return resource; }
-        set { resource = value; }
+        set { resource = value; grid.TriggerGridObjectChanged(x, y); }
     }
 
     const int MIN = 0;
