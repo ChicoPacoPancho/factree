@@ -187,7 +187,7 @@ public class GridManagement : MonoBehaviour
                                 if (changeSO.CanBeBuiltOn(hmgo.BaseTile))
                                 {
 
-                                    if (changeSO.CheckCost())
+                                    if (changeSO.CheckCost() || cheatMode)
                                     {
                                         Debug.Log("Setting new tile:" + position);
                                         hmgo.PlantTile = changeSO;

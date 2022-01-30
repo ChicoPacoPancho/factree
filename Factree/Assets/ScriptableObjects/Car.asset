@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Car
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: b7c516bf7f3273b4583ba9cd81b506ce, type: 2}
-  resources: []
+  resource:
+    resourceType: 3
+    count: 50

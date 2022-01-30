@@ -63,7 +63,7 @@ public class SelectionPanel : MonoBehaviour
 
         for (i = 0; i < cards.Count; i++)
         {
-            if (cards[i].scriptableObj.CheckCost())
+            if (cards[i].scriptableObj.CheckCost() || FindObjectOfType<GridManagement>().cheatMode)
             {
                 cards[i].gameObject.GetComponent<Button>().interactable = true;
             }
