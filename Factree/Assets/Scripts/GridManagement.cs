@@ -47,7 +47,7 @@ public class GridManagement : MonoBehaviour
                 }
             }
 
-        
+        cityGrid.GetGridObject(5, 5).ObjectTile = changeTile;
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
