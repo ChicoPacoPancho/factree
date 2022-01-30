@@ -6,9 +6,9 @@ using UnityEngine;
 public class DisplayAmount : MonoBehaviour
 {
     public TextMeshProUGUI amountDisplay;
-    public int amount;
+    public float amount;
     // Start is called before the first frame update
-    public void SetAmount(int count)
+    public void SetAmount(float count)
     {
         amount = count;
 
@@ -22,7 +22,7 @@ public class DisplayAmount : MonoBehaviour
         }
     }
 
-    public int GetAmount()
+    public float GetAmount()
     {
         return amount;
     }
