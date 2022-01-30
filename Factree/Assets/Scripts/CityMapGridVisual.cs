@@ -81,7 +81,7 @@ public class CityMapGridObject
         get
         { return baseTile; }
         set
-        { baseTile = value; grid.TriggerGridObjectChanged(x, y);  }
+        { baseTile = value; grid.TriggerGridObjectChanged(x, y); }
     }
     //Plant object
     BuildableSO plantTile;
@@ -90,16 +90,7 @@ public class CityMapGridObject
         get
         { return plantTile; }
         set
-        {
-            if (value == null)
-            {
-                Debug.Log("Blank plant sent");
-            }
-                
-            plantTile = value;
-
-            Debug.Log("Is now blank" + (plantTile == null));
-            grid.TriggerGridObjectChanged(x, y); }
+        { plantTile = value; grid.TriggerGridObjectChanged(x, y); }
     }
     // Ph float
     // Soil Progress float
@@ -123,8 +114,8 @@ public class CityMapGridObject
         this.x = x;
         this.y = y;
     }
-    
-   
+
+
 
     public float GetValueNormalized()
     {
