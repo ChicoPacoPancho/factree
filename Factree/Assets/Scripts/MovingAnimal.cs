@@ -27,6 +27,7 @@ public class MovingAnimal : MonoBehaviour
     private Vector3Int startingPosition;
 
     public GameObject grassGrower;
+    public GameObject dumpRemover;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,10 @@ public class MovingAnimal : MonoBehaviour
         if (spawnType == SpawnType.Bee)
         {
             BeeBehaviour();
+        }
+        if (spawnType == SpawnType.Goat)
+        {
+            GoatBehaviour();
         }
     }
 
@@ -79,6 +84,11 @@ public class MovingAnimal : MonoBehaviour
             BeeBehaviour();
         }
 
+        if (spawnType == SpawnType.Goat)
+        {
+            GoatBehaviour();
+        }
+
     }
 
     void BeeBehaviour()
@@ -96,6 +106,36 @@ public class MovingAnimal : MonoBehaviour
         }
     }
 
+    void GoatBehaviour()
+    {
+        var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
+        if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
+        {
+            if (GetGarbageTypeAt(focus) == GarbageTileType.Dumpster)
+            {
+                grid.cityGrid.GetGridObject(focus.x, focus.y).Resource.SubtractResource(bush.resourceOut[0].count);
+            }
+        }
+
+        if (!bush.CheckUpkeep())
+        {
+            destination = startingPosition;
+            destination = startingPosition;
+        }
+
+        if (bush.CheckUpkeep() && GetGarbageTypeAt(focus) != GarbageTileType.Dumpster)
+        {
+            focus = RandomResourceOfType(GarbageTileType.Dumpster);
+            destination = focus;
+            destination2 = startingPosition;
+            //Debug.Log(GetTileTypeAt(focus));
+            if (GetGarbageTypeAt(focus) == GarbageTileType.Dumpster)
+            {
+                if (dumpRemover)
+                    Instantiate(dumpRemover, objectGrid.CellToWorld(focus), Quaternion.identity, null);
+            }
+        }
+    }
 
     BaseTileType GetTileTypeAt(Vector3Int v)
     {

@@ -40,7 +40,7 @@ public class DestroySelfTimer : MonoBehaviour
         var pos = gameObject.transform.position;
         pos.z = 0;
         Vector3Int gridXY = FindObjectOfType<Tilemap>().WorldToCell(pos);
-        Debug.Log(gridXY);
+        //Debug.Log(gridXY);
         if (setBaseTile)
         {
             FindObjectOfType<GridManagement>().cityGrid.GetGridObject(gridXY.x, gridXY.y).BaseTile = baseTile;

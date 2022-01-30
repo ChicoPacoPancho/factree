@@ -10,21 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
-  m_Name: CrackConcrete
+  m_Name: TheGreatTree
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 11400000, guid: 9065a3c619e84824a9b31ebf845dc4d2, type: 2}
+  baseImage: {fileID: 11400000, guid: 7b39039c9e064b445815b64f7fdf8ea3, type: 2}
   resourceIn: []
   resourceOut:
-  - resourceType: 3
-    count: 60
-  - resourceType: 4
-    count: 60
-  - resourceType: 5
-    count: 60
-  builtCost:
+  - resourceType: 0
+    count: 15
   - resourceType: 1
-    count: 50
-  canBuildOn: 0000000004000000
-  spawnList:
-  - {fileID: 8898984198021951675, guid: de56acda53f05b4449b494d9f5b5a9c5, type: 3}
+    count: 30
+  - resourceType: 2
+    count: 15
+  builtCost: []
+  canBuildOn: 0300000002000000
+  spawnList: []
   spawnInterval: 0
