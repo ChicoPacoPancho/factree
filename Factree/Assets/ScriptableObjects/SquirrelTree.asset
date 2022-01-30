@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
-  m_Name: RootTree
+  m_Name: SquirrelTree
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 87ea70c2a035d0c42b41dcd66d7d73da, type: 2}
   resourceIn:
   - resourceType: 0
     count: 10
-  resourceOut: []
+  resourceOut:
+  - resourceType: 4
+    count: 60
   builtCost:
   - resourceType: 1
     count: 20
@@ -25,5 +27,6 @@ MonoBehaviour:
   - resourceType: 4
     count: 40
   canBuildOn: 0300000002000000
-  spawnList: []
+  spawnList:
+  - {fileID: 8176619236461054479, guid: 8f0a38b877e16d34ca574c5f93ae5a18, type: 3}
   spawnInterval: 0
