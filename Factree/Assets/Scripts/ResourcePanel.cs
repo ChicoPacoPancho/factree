@@ -24,6 +24,8 @@ public class ResourcePanel : MonoBehaviour
         }
 
         resourceManager.OnResourceChanged += ResourceManager_OnResourceChanged;
+
+        transform.parent.GetComponent<ScrollRect>().normalizedPosition = new Vector2(0, 1);
     }
 
     private void ResourceManager_OnResourceChanged(object sender, ResourceManager.ResourceChangedEventArgs e)
