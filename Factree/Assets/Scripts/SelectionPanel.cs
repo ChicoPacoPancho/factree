@@ -59,6 +59,7 @@ public class SelectionPanel : MonoBehaviour
 public class Card
 {
     public string label;
+    public Sprite sprite;
     public Tile tile;
     public BuildableSO scriptableObj; 
     public GameObject gameObject;
