@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af9df3b4ffa90f41b08a9262cff7099, type: 3}
+  m_Name: PotassiumFromDumpster
+  m_EditorClassIdentifier: 
+  requiredGarbage: {fileID: 11400000, guid: d9ef78005e581d549ad743670fcede77, type: 2}
+  radius: 1.5
+  cooldownTime: 0
+  startResourceChange: []
+  perSecondResourceChange:
+  - resourceType: 4
+    count: 2
+  garbageSubtracted: 60
+  totalSeconds: 60
