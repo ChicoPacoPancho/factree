@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.EventSystems;
+using System;
 
 public class GridManagement : MonoBehaviour
 {
+    public event EventHandler<OnSelectionButtonEventArgs> OnSelectionButtonClicked;
+    public class OnSelectionButtonEventArgs : EventArgs
+    {
+        public Sprite selectedTile;
+    }
+        
     CityGrid<bool>[] grid;
     public CityGrid<CityMapGridObject> cityGrid;
     [SerializeField] CityMapGridVisual cityVisual;
@@ -20,6 +27,8 @@ public class GridManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.OnSelectionButtonClicked += OnTileSelected;
+
         cityGrid = new CityGrid<CityMapGridObject>(12, 12, 1f, Vector3.zero, (CityGrid<CityMapGridObject> g, int x, int y) => new CityMapGridObject(g, x, y));
         
         cityVisual.SetGrid(cityGrid);
@@ -39,6 +48,11 @@ public class GridManagement : MonoBehaviour
             }
     }
 
+    void OnTileSelected(object sender, OnSelectionButtonEventArgs e )
+    {
+        changeTile = startTile;
+    }
+
     private void Update()
     {
         // Find mouse position on Grid
@@ -46,22 +60,13 @@ public class GridManagement : MonoBehaviour
         position.z = 0;
         Vector3Int tile = cityMap.WorldToCell(position);
         CityMapGridObject hmgo = cityGrid.GetGridObject(tile.x, tile.y);
+
+        selectionSquare.SetActive(false);
+
         if (hmgo == null)
         {
-            selectionSquare.SetActive(false);
+            
             return;
-        }
-        
-        
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("Button Pressed: " + position);
-            if (hmgo != null)
-            {
-                Debug.Log("Setting new tile:" + position);
-                hmgo.ObjectTile = changeTile;
-            }
         }
 
         // Do not update selection if over the UI Panels
@@ -70,23 +75,39 @@ public class GridManagement : MonoBehaviour
             return;
         }
 
-        // Get the position of the mouse and convert it to cells
         if (hmgo.BaseTile != null)
         {
             selectionSquare.SetActive(true);
-            Vector3 roundedPos = cityMap.CellToWorld(tile);
-            selectionSquare.transform.position = roundedPos;
-        }
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Button Pressed: " + position);
+                if (hmgo != null)
+                {
+                    Debug.Log("Setting new tile:" + position);
+                    hmgo.ObjectTile = changeTile;
+                }
+            }
 
+            // Get the position of the mouse and convert it to cells
+            if (hmgo.BaseTile != null)
+            {                
+                Vector3 roundedPos = cityMap.CellToWorld(tile);
+                selectionSquare.transform.position = roundedPos;
+            }
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-     //   cityGrid.DrawDebug(1f);
-        //for (int i = 0; i < 3; i++)
-        //{
-        //    grid[i].DrawDebug(scale*(i+.5f));
-        //}
+     
+    }
+
+    public void TriggerSelectionButtonClicked(Sprite selection)
+    {
+        if (OnSelectionButtonClicked != null)
+        {
+            OnSelectionButtonClicked(this, new OnSelectionButtonEventArgs { selectedTile = selection });
+        }
     }
 }
