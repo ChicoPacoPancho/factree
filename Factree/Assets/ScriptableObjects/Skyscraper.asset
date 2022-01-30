@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Skyscraper
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 1528f2399987b234f90d1fc62e626a96, type: 2}
-  resources: []
+  resource:
+    resourceType: 5
+    count: 100

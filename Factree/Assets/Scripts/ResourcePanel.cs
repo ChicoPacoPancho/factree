@@ -41,7 +41,7 @@ public class ResourcePanel : MonoBehaviour
 
     float SpecialRound(float a)
     {
-        return Mathf.Round(a);
+        return Mathf.Floor(a);
     }
 
     // Update is called once per frame

@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Dumpster
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 38b0c640e6cd0b645b57746cf6d68968, type: 2}
-  resources: []
+  resource:
+    resourceType: 5
+    count: 50

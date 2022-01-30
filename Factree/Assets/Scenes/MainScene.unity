@@ -3385,11 +3385,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7151368637506368820, guid: 0daebe2794fef234daa7e030096cb75c, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7151368637506368820, guid: 0daebe2794fef234daa7e030096cb75c, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7151368637506368820, guid: 0daebe2794fef234daa7e030096cb75c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3405,72 +3405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7151368637506368820, guid: 0daebe2794fef234daa7e030096cb75c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0daebe2794fef234daa7e030096cb75c, type: 3}
---- !u!1001 &8009967799096585974
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.1179487
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.8079636
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.907722
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731484, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731486, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_Name
-      value: WreckingArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731486, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8009967799199731487, guid: 97427656873b8cf4699760334244c99d, type: 3}
-      propertyPath: playOnDestroy
-      value: DestroySound
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 97427656873b8cf4699760334244c99d, type: 3}
