@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Mall
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 436dfbd133c74cc4eaf374e150a271b0, type: 2}
-  resources: []
+  resource:
+    resourceType: 4
+    count: 50

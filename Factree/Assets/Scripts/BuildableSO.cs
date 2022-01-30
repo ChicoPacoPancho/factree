@@ -77,7 +77,7 @@ public class BuildableSO : ScriptableObject
     {
         foreach (ResourceItem ri in builtCost) {
             var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
-            if (available < ri.count)
+            if (available <= ri.count)
             {
                 return false;
             }
@@ -96,7 +96,7 @@ public class BuildableSO : ScriptableObject
         foreach (ResourceItem ri in resourceIn)
         {
             var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
-            if (available < ri.count/60f)
+            if (available <= ri.count/60f)
             {
                 return false;
             }

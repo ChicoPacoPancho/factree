@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Industry
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 49015e073be1b2a478399c940ec8bc40, type: 2}
-  resources: []
+  resource:
+    resourceType: 3
+    count: 200

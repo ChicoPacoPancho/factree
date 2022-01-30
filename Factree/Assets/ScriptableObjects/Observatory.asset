@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Observatory
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: c9291212c1b6f274082c562f99d665e9, type: 2}
-  resources: []
+  resource:
+    resourceType: 4
+    count: 100
