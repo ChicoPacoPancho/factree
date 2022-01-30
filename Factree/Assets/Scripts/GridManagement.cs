@@ -68,9 +68,14 @@ public class GridManagement : MonoBehaviour
         for (i = 7; i <= 9; i++)
             for (j = 3; j <= 5; j++)
                 cityGrid.GetGridObject(i, j).BaseTile = selectedTile;
+
         // World Tree
         selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Grass);
         cityGrid.GetGridObject(8, 4).BaseTile = selectedTile;
+        cityGrid.GetGridObject(7, 4).BaseTile = selectedTile;
+        cityGrid.GetGridObject(9, 4).BaseTile = selectedTile;
+        cityGrid.GetGridObject(8, 3).BaseTile = selectedTile;
+        cityGrid.GetGridObject(8, 5).BaseTile = selectedTile;
 
         // Water
         selectedTile = GroundDictionary.Instance.GetTile(BaseTileType.Water);
