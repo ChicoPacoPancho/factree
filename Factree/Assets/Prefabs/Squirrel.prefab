@@ -134,3 +134,6 @@ MonoBehaviour:
   flipSprite: 1
   spawnType: 2
   focus: {x: 0, y: 0, z: 0}
+  grassGrower: {fileID: 0}
+  dumpRemover: {fileID: 5335235341521712897, guid: 850415bf35c847b49ba6cbda925924c7, type: 3}
+  mallRemover: {fileID: 5335235341521712897, guid: 850415bf35c847b49ba6cbda925924c7, type: 3}

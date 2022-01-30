@@ -28,6 +28,7 @@ public class MovingAnimal : MonoBehaviour
 
     public GameObject grassGrower;
     public GameObject dumpRemover;
+    public GameObject mallRemover;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +42,15 @@ public class MovingAnimal : MonoBehaviour
         {
             BeeBehaviour();
         }
+
         if (spawnType == SpawnType.Goat)
         {
             GoatBehaviour();
+        }
+
+        if (spawnType == SpawnType.Squirrel)
+        {
+            SquirrelBehaviour();
         }
     }
 
@@ -87,6 +94,11 @@ public class MovingAnimal : MonoBehaviour
         if (spawnType == SpawnType.Goat)
         {
             GoatBehaviour();
+        }
+
+        if (spawnType == SpawnType.Squirrel)
+        {
+            SquirrelBehaviour();
         }
 
     }
@@ -133,6 +145,36 @@ public class MovingAnimal : MonoBehaviour
             {
                 if (dumpRemover)
                     Instantiate(dumpRemover, objectGrid.CellToWorld(focus), Quaternion.identity, null);
+            }
+        }
+    }
+    void SquirrelBehaviour()
+    {
+        var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
+        if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
+        {
+            if (GetGarbageTypeAt(focus) == GarbageTileType.Mall)
+            {
+                grid.cityGrid.GetGridObject(focus.x, focus.y).Resource.SubtractResource(bush.resourceOut[0].count);
+            }
+        }
+
+        if (!bush.CheckUpkeep())
+        {
+            destination = startingPosition;
+            destination = startingPosition;
+        }
+
+        if (bush.CheckUpkeep() && GetGarbageTypeAt(focus) != GarbageTileType.Mall)
+        {
+            focus = RandomResourceOfType(GarbageTileType.Mall);
+            destination = focus;
+            destination2 = startingPosition;
+            //Debug.Log(GetTileTypeAt(focus));
+            if (GetGarbageTypeAt(focus) == GarbageTileType.Mall)
+            {
+                if (mallRemover)
+                    Instantiate(mallRemover, objectGrid.CellToWorld(focus), Quaternion.identity, null);
             }
         }
     }
