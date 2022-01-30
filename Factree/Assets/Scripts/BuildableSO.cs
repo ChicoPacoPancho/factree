@@ -19,7 +19,8 @@ public enum BaseTileType
     Water,
     Grass,
     Soil,
-    Asphalt
+    Asphalt,
+    None
 }
 
 
@@ -51,7 +52,8 @@ public enum ResourceType
 public enum SpawnType
 {
     Bee,
-    Goat
+    Goat,
+    Squirrel
 }
 
 [CreateAssetMenu(menuName = "Object/Buildable")]

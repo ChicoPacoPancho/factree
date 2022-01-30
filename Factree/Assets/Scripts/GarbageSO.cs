@@ -11,7 +11,8 @@ public enum GarbageTileType
     Mall,
     Industry,
     Car,
-    SkyScraper
+    SkyScraper,
+    None
 }
 
 [CreateAssetMenu(menuName = "Object/Garbage")]
