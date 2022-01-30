@@ -29,7 +29,7 @@ public class ResourceManager : MonoBehaviour
                 for (int y = 0; y < grid.cityGrid.Height; y++)
                 {
                     var obj = grid.cityGrid.GetGridObject(x, y);
-                    if (obj != null && (GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Asphalt || 
+                    if (obj != null && obj.BaseTile != null && (GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Asphalt || 
                         GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Concrete ||
                         GroundDictionary.Instance.GetTileType(obj.BaseTile) == BaseTileType.Soil))
                     {
@@ -49,7 +49,7 @@ public class ResourceManager : MonoBehaviour
                 }
             }
 
-            Debug.Log(containsAllGrass);
+            //Debug.Log(containsAllGrass);
             if (!victoryYet && containsAllGrass)
             {
                 victoryYet = true;
