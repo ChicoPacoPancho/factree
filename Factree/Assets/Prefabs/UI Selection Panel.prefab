@@ -56,7 +56,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115291328832934332}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
+  m_ShowMaskGraphic: 0
 --- !u!1 &115291328996172496
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,16 +250,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06180fc03c6ac2d4a98d428a3e617688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cards:
-  - label: Tree
-    sprite: {fileID: 4798128000316562087, guid: 8b8bb9bb623695c4688978416edf2c45, type: 3}
-    gameObject: {fileID: 0}
-  - label: Goat
-    sprite: {fileID: -1540059275231109329, guid: d9b1ec0a547fccf40b4d738ac735529f, type: 3}
-    gameObject: {fileID: 0}
-  - label: Solar array
-    sprite: {fileID: 6323592419580586483, guid: d9b1ec0a547fccf40b4d738ac735529f, type: 3}
-    gameObject: {fileID: 0}
+  cards: []
+  scriptableObjects:
+  - {fileID: 11400000, guid: 54c2ad66e5fb7d240975c050c5c0afb4, type: 2}
+  - {fileID: 11400000, guid: 4e5063e93b024824dadd9f5aa430517b, type: 2}
+  - {fileID: 11400000, guid: 6b7022f981a90fe468fd937f1b0158a1, type: 2}
+  - {fileID: 11400000, guid: 79c367accaee7c249a4d4cf1c2542d0e, type: 2}
+  - {fileID: 11400000, guid: d93e6d0a90acb8b459d3e12a7041a16a, type: 2}
+  - {fileID: 11400000, guid: 90b905cf1f060224989d16aab03ebc14, type: 2}
+  - {fileID: 11400000, guid: c9f204179de263d419823f22ec7bb141, type: 2}
+  - {fileID: 11400000, guid: 07bbdfc6efea7b542a39296ea51f7c88, type: 2}
+  - {fileID: 11400000, guid: 10a89db2ef728c84b988b828e5cec5db, type: 2}
+  - {fileID: 11400000, guid: e436940d20b3bc3419bb5a7e0f50a46f, type: 2}
   prefab: {fileID: 8755100515241971792, guid: 2b2485e3b7b33e04389d96acbfaa5830, type: 3}
 --- !u!1001 &4467101184994899819
 PrefabInstance:
@@ -354,10 +356,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4352671891489666386, guid: d20e0de043cf91c41b213452228a6772, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4352671891489666387, guid: d20e0de043cf91c41b213452228a6772, type: 3}
-      propertyPath: m_Value
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4352671892060221571, guid: d20e0de043cf91c41b213452228a6772, type: 3}
