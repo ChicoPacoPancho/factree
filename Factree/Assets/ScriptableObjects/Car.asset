@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6f1195abac8c04ea9e8aa848b53785, type: 3}
   m_Name: Car
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
+  baseImage: {fileID: 11400000, guid: b7c516bf7f3273b4583ba9cd81b506ce, type: 2}
+  resources: []
