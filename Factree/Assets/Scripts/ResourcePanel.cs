@@ -19,7 +19,7 @@ public class ResourcePanel : MonoBehaviour
             newItem.transform.Find("Image").GetComponent<Image>().sprite = r.sprite;
             newItem.transform.Find("Label").GetComponent<Text>().text = r.label;
             r.textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            r.textObject.text = "" + resourceManager.GetResourceAmountByType(r.type);
+            r.textObject.text = "" + SpecialRound(resourceManager.GetResourceAmountByType(r.type));
             r.gameObject = newItem;
         }
 
@@ -34,9 +34,14 @@ public class ResourcePanel : MonoBehaviour
         {
             if (r.type == e.type)
             {
-                r.textObject.text = "" + e.newAmount;
+                r.textObject.text = "" + SpecialRound(e.newAmount);
             }
         }
+    }
+
+    float SpecialRound(float a)
+    {
+        return Mathf.Round(a);
     }
 
     // Update is called once per frame

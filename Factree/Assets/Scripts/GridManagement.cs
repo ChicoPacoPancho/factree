@@ -83,7 +83,7 @@ public class GridManagement : MonoBehaviour
 
         // Build up Objects
         // World Tree
-        changeSO = BuildableDictionary.Instance.GetTile(BuildableTileType.RootTree);
+        changeSO = BuildableDictionary.Instance.GetTile(BuildableTileType.TheGreatTree);
         cityGrid.GetGridObject(8, 4).PlantTile = changeSO;
 
         // Dumpster
@@ -179,21 +179,28 @@ public class GridManagement : MonoBehaviour
                         if (hmgo.Resource == null)
                         {
 
-                            if (changeSO.CheckCost() || cheatMode)
+                            if (hmgo.PlantTile == null)
                             {
-                                Debug.Log("Setting new tile:" + position);
-                                hmgo.PlantTile = changeSO;
-                                changeSO.SubtractCost();
-                                GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
-                                // Spawn any immediate spawns
-                                if (changeSO.spawnInterval == 0)
+                                if (changeSO.CheckCost() || cheatMode)
                                 {
-                                    changeSO.SpawnSpawns(roundedPos);
+                                    Debug.Log("Setting new tile:" + position);
+                                    hmgo.PlantTile = changeSO;
+                                    changeSO.SubtractCost();
+                                    GameObject.Find("PlaceSound").GetComponent<AudioSource>().Play();
+                                    // Spawn any immediate spawns
+                                    if (changeSO.spawnInterval == 0)
+                                    {
+                                        changeSO.SpawnSpawns(roundedPos);
+                                    }
+                                }
+                                else
+                                {
+                                    MessagePanel.Instance.ShowMessage("Not enough resources to place this object");
                                 }
                             }
                             else
                             {
-                                MessagePanel.Instance.ShowMessage("Not enough resources to place this object");
+                                MessagePanel.Instance.ShowMessage("There is already a plant here");
                             }
                         } else
                         {
@@ -212,6 +219,7 @@ public class GridManagement : MonoBehaviour
             if (hmgo.BaseTile != null)
             {                
                 selectionSquare.transform.position = roundedPos;
+                FindObjectOfType<TooltipPanel>().SetData(hmgo.PlantTile);
             }
         }
     }

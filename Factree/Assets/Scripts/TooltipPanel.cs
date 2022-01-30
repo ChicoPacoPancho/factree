@@ -50,7 +50,7 @@ public class TooltipPanel : MonoBehaviour
             var newItem = Instantiate(prefab, subpanel.Find("Production Panel"));
             newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
             var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "+" + r.count;
+            textObject.text = "+" + SpecialRound(r.count);
         }
 
         foreach (var r in setObject.resourceIn)
@@ -58,7 +58,7 @@ public class TooltipPanel : MonoBehaviour
             var newItem = Instantiate(prefab, subpanel.Find("Upkeep Panel"));
             newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
             var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "-" + r.count;
+            textObject.text = "-" + SpecialRound(r.count);
         }
 
         foreach (var r in setObject.builtCost)
@@ -70,9 +70,19 @@ public class TooltipPanel : MonoBehaviour
         }
     }
 
+    float SpecialRound(float a)
+    {
+        return Mathf.Round(a /60f * 10) / 10;
+    }
+
 
     public void SetData(BuildableSO so)
     {
+        if (so == null)
+        {
+            HidePanel();
+            return;
+        }
         var subpanel = transform.GetChild(0);
         setObject = so;
         UpdatePanel();

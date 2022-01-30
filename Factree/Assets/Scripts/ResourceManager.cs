@@ -47,81 +47,81 @@ public class ResourceManager : MonoBehaviour
     public class ResourceChangedEventArgs : EventArgs
     {
         public ResourceType type;
-        public int amountChanged;
-        public int newAmount;
+        public float amountChanged;
+        public float newAmount;
     }
 
-    private int m_waterAmount = 30;
-    public int waterAmount
+    private float m_waterAmount = 30;
+    public float waterAmount
     {
         get { return m_waterAmount; }
         set {
-            int amountChanged = value - m_waterAmount;
+            float amountChanged = value - m_waterAmount;
             m_waterAmount = value;
 
             if (OnResourceChanged != null)
                 OnResourceChanged(this, new ResourceChangedEventArgs { type = ResourceType.Water, amountChanged = amountChanged, newAmount = value });
         }
     }
-    private int m_nitrogenAmount = 30;
-    public int nitrogenAmount
+    private float m_nitrogenAmount = 30;
+    public float nitrogenAmount
     {
         get { return m_nitrogenAmount; }
         set
         {
-            int amountChanged = value - m_nitrogenAmount;
+            float amountChanged = value - m_nitrogenAmount;
             m_nitrogenAmount = value;
 
             if (OnResourceChanged != null)
                 OnResourceChanged(this, new ResourceChangedEventArgs { type = ResourceType.Nitrogen, amountChanged = amountChanged, newAmount = value });
         }
     }
-    private int m_phosphorusAmount = 0;
-    public int phosphorusAmount
+    private float m_phosphorusAmount = 0;
+    public float phosphorusAmount
     {
         get { return m_phosphorusAmount; }
         set
         {
-            int amountChanged = value - m_phosphorusAmount;
+            float amountChanged = value - m_phosphorusAmount;
             m_phosphorusAmount = value;
 
             if (OnResourceChanged != null)
                 OnResourceChanged(this, new ResourceChangedEventArgs { type = ResourceType.Phosphorous, amountChanged = amountChanged, newAmount = value });
         }
     }
-    private int m_sulfurAmount = 0;
-    public int sulfurAmount
+    private float m_sulfurAmount = 0;
+    public float sulfurAmount
     {
         get { return m_sulfurAmount; }
         set
         {
-            int amountChanged = value - m_sulfurAmount;
+            float amountChanged = value - m_sulfurAmount;
             m_sulfurAmount = value;
 
             if (OnResourceChanged != null)
                 OnResourceChanged(this, new ResourceChangedEventArgs { type = ResourceType.Sulfur, amountChanged = amountChanged, newAmount = value });
         }
     }
-    private int m_energyAmount = 100;
-    public int energyAmount
+    private float m_energyAmount = 100;
+    public float energyAmount
     {
         get { return m_energyAmount; }
         set
         {
-            int amountChanged = value - m_energyAmount;
+            float amountChanged = value - m_energyAmount;
             m_energyAmount = value;
 
             if (OnResourceChanged != null)
                 OnResourceChanged(this, new ResourceChangedEventArgs { type = ResourceType.Energy, amountChanged = amountChanged, newAmount = value });
         }
     }
-    private int m_potassiumAmount = 0;
-    public int potassiumAmount
+    private float m_potassiumAmount = 0;
+    public float potassiumAmount
     {
         get { return m_potassiumAmount; }
         set
         {
-            int amountChanged = value - m_potassiumAmount;
+            float amountChanged = value - m_potassiumAmount;
             m_potassiumAmount = value;
 
             if (OnResourceChanged != null)
@@ -129,7 +129,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public int GetResourceAmountByType(ResourceType type)
+    public float GetResourceAmountByType(ResourceType type)
     {
         switch(type){
             case ResourceType.Water:
@@ -155,7 +155,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public void SetResourceAmountByType(ResourceType type, int number)
+    public void SetResourceAmountByType(ResourceType type, float number)
     {
         switch (type)
         {
@@ -188,7 +188,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public void AddResourceAmountByType(ResourceType type, int number)
+    public void AddResourceAmountByType(ResourceType type, float number)
     {
         switch (type)
         {

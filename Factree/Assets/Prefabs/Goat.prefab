@@ -45,13 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movingError: 0.01
-  movingSpeed: 1
+  movingSpeed: 0.6
   destination: {x: -1, y: 0, z: 0}
   destination2: {x: 2, y: 0, z: 0}
   backAndForth: 1
   flipSprite: 1
   spawnType: 1
   focus: {x: 0, y: 0, z: 0}
+  grassGrower: {fileID: 0}
+  dumpRemover: {fileID: 0}
 --- !u!1 &1020021937835757981
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public enum BaseTileType
 
 public enum BuildableTileType
 {
+    TheGreatTree,
     BeeTree,
     BerryBush,
     Caragana,
@@ -94,7 +95,7 @@ public class BuildableSO : ScriptableObject
         foreach (ResourceItem ri in resourceIn)
         {
             var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
-            if (available < ri.count)
+            if (available < ri.count/60f)
             {
                 return false;
             }
@@ -105,14 +106,14 @@ public class BuildableSO : ScriptableObject
     {
         foreach (ResourceItem ri in resourceIn)
         {
-            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, -ri.count);
+            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, -ri.count/60f);
         }
     }
     public void AddIncome()
     {
         foreach (ResourceItem ri in resourceOut)
         {
-            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count);
+            ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count/60f);
         }
     }
 

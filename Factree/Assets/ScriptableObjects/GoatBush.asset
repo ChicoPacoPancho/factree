@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
-  m_Name: BerryBush
+  m_Name: GoatBush
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 06df2a9a35823b84985b40e2281a8a39, type: 2}
   resourceIn:
   - resourceType: 0
     count: 10
-  resourceOut: []
+  resourceOut:
+  - resourceType: 4
+    count: 20
   builtCost:
   - resourceType: 1
     count: 20
@@ -25,5 +27,6 @@ MonoBehaviour:
   - resourceType: 3
     count: 20
   canBuildOn: 0200000003000000
-  spawnList: 01000000
+  spawnList:
+  - {fileID: 1020021936925511878, guid: f4fdf1b0da8940846b96d5d0fdfc99dc, type: 3}
   spawnInterval: 0
