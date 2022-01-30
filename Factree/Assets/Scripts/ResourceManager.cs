@@ -25,12 +25,12 @@ public class ResourceManager : MonoBehaviour
                 for (int y = 0; y < grid.cityGrid.Height; y++)
                 {
                     var obj = grid.cityGrid.GetGridObject(x, y);
-                    if (obj != null && obj.buildableSO != null)
+                    if (obj != null && obj.PlantTile != null)
                     {
-                        if (obj.buildableSO.CheckUpkeep())
+                        if (obj.PlantTile.CheckUpkeep())
                         {
-                            obj.buildableSO.SubtractUpkeep();
-                            obj.buildableSO.AddIncome();
+                            obj.PlantTile.SubtractUpkeep();
+                            obj.PlantTile.AddIncome();
                         } else
                         {
                             //Debug.Log("Not enough resources for upkeep!");
