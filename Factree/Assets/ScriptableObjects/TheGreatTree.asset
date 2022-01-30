@@ -25,3 +25,4 @@ MonoBehaviour:
   canBuildOn: 0300000002000000
   spawnList: []
   spawnInterval: 0
+  collectResourceAbilities: []
