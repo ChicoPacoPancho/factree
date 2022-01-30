@@ -10,8 +10,8 @@ public class CollectResourceAbility : ScriptableObject
     public float cooldownTime;
     public List<ResourceItem> startResourceChange;
     public List<ResourceItem> perSecondResourceChange;
-    public int garbageSubtracted;
-    public int totalSeconds;
+    public float garbageSubtracted;
+    public float totalSeconds;
 
 
     public void DoAbility(int x, int y, int targetX, int targetY)

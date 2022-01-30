@@ -10,7 +10,7 @@ public struct ResourceItem
     [SerializeField]
     public ResourceType resourceType;
     [SerializeField]
-    public int count;
+    public float count;
 }
 
 public enum BaseTileType
@@ -114,6 +114,7 @@ public class BuildableSO : ScriptableObject
     {
         foreach (ResourceItem ri in resourceOut)
         {
+            Debug.Log("Adding " + ri.count / 60f + ri.resourceType + " for a total of " + ResourceManager.Instance.GetResourceAmountByType(ri.resourceType));
             ResourceManager.Instance.AddResourceAmountByType(ri.resourceType, ri.count/60f);
         }
     }

@@ -28,7 +28,7 @@ public class GarbageSO : ScriptableObject
     //public List<SpawnType> spawnList;
     //public float spawnInterval;
 
-    public void SubtractResource(int amount)
+    public void SubtractResource(float amount)
     {
         resource.count -= amount/60;
 
