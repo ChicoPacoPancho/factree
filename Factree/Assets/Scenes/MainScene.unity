@@ -1828,7 +1828,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cityVisual: {fileID: 853846296}
   scale: 1
-  plantList: {fileID: 11400000, guid: 8538954e64dc8eb4286ce76a62396529, type: 2}
   changeSO: {fileID: 0}
   selectedTile: {fileID: 0}
   cityMap: {fileID: 1910468141}
@@ -2070,6 +2069,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 530010098}
     m_Modifications:
+    - target: {fileID: 614890665855849860, guid: 7584db8b89108a444aced9a92003a021, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 614890665855849860, guid: 7584db8b89108a444aced9a92003a021, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 614890667059240482, guid: 7584db8b89108a444aced9a92003a021, type: 3}
       propertyPath: m_Name
       value: UI Resource Panel
@@ -2289,17 +2296,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dictionary:
   - tileType: 0
-    tile: {fileID: 11400000, guid: 38b0c640e6cd0b645b57746cf6d68968, type: 2}
+    item: {fileID: 11400000, guid: d9ef78005e581d549ad743670fcede77, type: 2}
   - tileType: 1
-    tile: {fileID: 11400000, guid: c9291212c1b6f274082c562f99d665e9, type: 2}
+    item: {fileID: 11400000, guid: 55d82a49d3c92a148895bf97dfe35a66, type: 2}
   - tileType: 2
-    tile: {fileID: 11400000, guid: 436dfbd133c74cc4eaf374e150a271b0, type: 2}
+    item: {fileID: 11400000, guid: ebb89f3a16de7414fb1f26354b8ee6e7, type: 2}
   - tileType: 3
-    tile: {fileID: 11400000, guid: 49015e073be1b2a478399c940ec8bc40, type: 2}
+    item: {fileID: 11400000, guid: 05b810122930c044fabb7e320f613f3f, type: 2}
   - tileType: 4
-    tile: {fileID: 11400000, guid: b7c516bf7f3273b4583ba9cd81b506ce, type: 2}
+    item: {fileID: 11400000, guid: a3a46313cdb1ce34cb483b0e7d0b0c31, type: 2}
   - tileType: 5
-    tile: {fileID: 11400000, guid: 1528f2399987b234f90d1fc62e626a96, type: 2}
+    item: {fileID: 11400000, guid: 8a45f1649b5adc0449597e6f0c430157, type: 2}
 --- !u!114 &1888797405
 MonoBehaviour:
   m_ObjectHideFlags: 0
