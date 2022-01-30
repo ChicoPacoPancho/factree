@@ -12,10 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: WreckingBallTree
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
-  resourceIn: []
+  baseImage: {fileID: 11400000, guid: d59ce75ec175b9b459744644d9a264e6, type: 2}
+  resourceIn:
+  - resourceType: 0
+    count: 10
   resourceOut: []
-  builtCost: []
-  canBuildOn: 
+  builtCost:
+  - resourceType: 1
+    count: 20
+  - resourceType: 2
+    count: 20
+  - resourceType: 4
+    count: 10
+  - resourceType: 5
+    count: 60
+  canBuildOn: 0300000002000000
   spawnList: 
   spawnInterval: 0

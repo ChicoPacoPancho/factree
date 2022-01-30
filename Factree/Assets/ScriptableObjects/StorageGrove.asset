@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
-  m_Name: Solar
+  m_Name: StorageGrove
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 11400000, guid: 2fc71801fb515444a9bb949223934cb9, type: 2}
+  baseImage: {fileID: 11400000, guid: 79db00dbe4a3201429fc902052636668, type: 2}
   resourceIn:
   - resourceType: 0
     count: 10
-  resourceOut:
-  - resourceType: 1
-    count: 40
+  resourceOut: []
   builtCost:
   - resourceType: 1
-    count: 10
+    count: 40
   - resourceType: 2
-    count: 10
+    count: 20
+  - resourceType: 4
+    count: 40
   canBuildOn: 0300000002000000
   spawnList: 
   spawnInterval: 0

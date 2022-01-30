@@ -12,10 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: WaterWheel
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 0}
+  baseImage: {fileID: 11400000, guid: 67b0c4fc1c0b8224689b3bbc07f1aa90, type: 2}
   resourceIn: []
-  resourceOut: []
-  builtCost: []
-  canBuildOn: 
+  resourceOut:
+  - resourceType: 1
+    count: 120
+  builtCost:
+  - resourceType: 1
+    count: 40
+  - resourceType: 2
+    count: 60
+  - resourceType: 3
+    count: 10
+  canBuildOn: 01000000
   spawnList: 
   spawnInterval: 0
