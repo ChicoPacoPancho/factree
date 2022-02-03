@@ -32,7 +32,7 @@ public class SelectionPanel : MonoBehaviour
             var newItem = Instantiate(prefab, transform);
             if (card.scriptableObj != null)
             {
-                card.label = SplitCamelCase(card.scriptableObj.name);
+                card.label = card.scriptableObj.GetDisplayName();
                 card.tile = card.scriptableObj.baseImage;
             }
             var sprite = noneSprite;
@@ -98,11 +98,6 @@ public class SelectionPanel : MonoBehaviour
     public void OnPointerExit(Card card)
     {
         tooltipPanel.HidePanel();
-    }
-
-    public static string SplitCamelCase(string input)
-    {
-        return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
     }
 
 }

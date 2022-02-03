@@ -49,17 +49,25 @@ public class TooltipPanel : MonoBehaviour
 
         var card = subpanel.Find("Card");
 
-        
+        // Ideally BuildableSO and GarbageSO inherit these methods from the same interface
+
         string label = "";
-        if (setObject != null) label = setObject.name;
-        if (setRObject != null) label = setRObject.name;
+        if (setObject != null) label = setObject.GetDisplayName();
+        if (setRObject != null) label = setRObject.GetDisplayName();
 
         Sprite sprite = noneSprite;
         if (setObject != null && setObject.baseImage != null) sprite = setObject.baseImage.sprite;
         if (setRObject != null && setRObject.baseImage != null) sprite = setRObject.baseImage.sprite;
 
-        card.GetComponentInChildren<Text>().text = SelectionPanel.SplitCamelCase(label);
+        string description = "";
+        if (setObject != null) description = setObject.GetDescription();
+        if (setRObject != null) description = setRObject.GetDescription();
+
+        card.GetComponentInChildren<Text>().text = label;
         card.GetComponentInChildren<Image>().sprite = sprite;
+
+        card.Find("Description").GetComponentInChildren<Text>().text = description;
+        card.Find("Description").gameObject.SetActive(description != "");
 
         Transform resourceSidePanel = subpanel.Find("Resources");
 
