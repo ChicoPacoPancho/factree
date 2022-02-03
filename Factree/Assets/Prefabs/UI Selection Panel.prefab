@@ -253,17 +253,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cards: []
   scriptableObjects:
-  - {fileID: 11400000, guid: c6c8fd18b9e9e944895203bc3ec80179, type: 2}
   - {fileID: 11400000, guid: 07bbdfc6efea7b542a39296ea51f7c88, type: 2}
   - {fileID: 11400000, guid: 90b905cf1f060224989d16aab03ebc14, type: 2}
-  - {fileID: 11400000, guid: e436940d20b3bc3419bb5a7e0f50a46f, type: 2}
   - {fileID: 11400000, guid: 79c367accaee7c249a4d4cf1c2542d0e, type: 2}
   - {fileID: 11400000, guid: 4e5063e93b024824dadd9f5aa430517b, type: 2}
-  - {fileID: 11400000, guid: 6b7022f981a90fe468fd937f1b0158a1, type: 2}
-  - {fileID: 11400000, guid: d93e6d0a90acb8b459d3e12a7041a16a, type: 2}
   - {fileID: 11400000, guid: c9f204179de263d419823f22ec7bb141, type: 2}
-  - {fileID: 11400000, guid: 10a89db2ef728c84b988b828e5cec5db, type: 2}
+  - {fileID: 11400000, guid: 6b7022f981a90fe468fd937f1b0158a1, type: 2}
+  - {fileID: 11400000, guid: e436940d20b3bc3419bb5a7e0f50a46f, type: 2}
+  - {fileID: 11400000, guid: d93e6d0a90acb8b459d3e12a7041a16a, type: 2}
   - {fileID: 11400000, guid: 86dc6177d2843b74e9da6fbace3b3dfe, type: 2}
+  - {fileID: 11400000, guid: c6c8fd18b9e9e944895203bc3ec80179, type: 2}
   - {fileID: 11400000, guid: 54c2ad66e5fb7d240975c050c5c0afb4, type: 2}
   prefab: {fileID: 8755100515241971792, guid: 2b2485e3b7b33e04389d96acbfaa5830, type: 3}
   noneSprite: {fileID: 0}

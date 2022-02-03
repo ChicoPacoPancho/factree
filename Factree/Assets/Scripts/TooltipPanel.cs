@@ -114,7 +114,7 @@ public class TooltipPanel : MonoBehaviour
     }
     string ContainsFormat(float n)
     {
-        return "" + Mathf.Round(n * 10) / 10;
+        return "+" + Mathf.Round(n * 10) / 10;
     }
 
 
