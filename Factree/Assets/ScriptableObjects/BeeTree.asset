@@ -28,3 +28,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: 
+  shortDescription: Bees change soil tiles to grass

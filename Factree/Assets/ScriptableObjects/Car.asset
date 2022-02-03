@@ -16,3 +16,5 @@ MonoBehaviour:
   resource:
     resourceType: 3
     count: 50
+  displayName: Rusted Car
+  shortDescription: 
