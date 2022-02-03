@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,14 +33,16 @@ public class TooltipPanel : MonoBehaviour
         var subpanel = transform.GetChild(0);
 
         // Clear panels first
-        string[] panelsToClear = { "Cost Panel", "Production Panel", "Upkeep Panel" };
+        string[] panelsToClear = { "Cost Panel", "Production Panel", "Upkeep Panel", "Contains Panel" };
 
         foreach (string panel in panelsToClear)
         {
-            foreach (Transform child in subpanel.Find(panel))
+            var section = subpanel.Find("Resources").Find(panel);
+            foreach (Transform child in section)
             {
                 if (child.name != "Label") Destroy(child.gameObject);
             }
+            section.gameObject.SetActive(false);
         }
 
         if (setObject == null && setRObject == null) return;
@@ -58,45 +61,52 @@ public class TooltipPanel : MonoBehaviour
         card.GetComponentInChildren<Text>().text = SelectionPanel.SplitCamelCase(label);
         card.GetComponentInChildren<Image>().sprite = sprite;
 
+        Transform resourceSidePanel = subpanel.Find("Resources");
+
         if (setObject != null)
         {
-            foreach (var r in setObject.resourceOut)
-            {
-                var newItem = Instantiate(prefab, subpanel.Find("Production Panel"));
-                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
-                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-                textObject.text = "+" + SpecialRound(r.count);
-            }
+            Populate(resourceSidePanel.Find("Production Panel"), setObject.resourceOut, ProductionFormat);
+            
+            Populate(resourceSidePanel.Find("Upkeep Panel"), setObject.resourceIn, UpkeepFormat);
 
-            foreach (var r in setObject.resourceIn)
-            {
-                var newItem = Instantiate(prefab, subpanel.Find("Upkeep Panel"));
-                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
-                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-                textObject.text = "-" + SpecialRound(r.count);
-            }
-
-            foreach (var r in setObject.builtCost)
-            {
-                var newItem = Instantiate(prefab, subpanel.Find("Cost Panel"));
-                newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
-                var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-                textObject.text = "-" + r.count;
-            }
+            Populate(resourceSidePanel.Find("Cost Panel"), setObject.builtCost, CostFormat);
         }
 
         if (setRObject != null)
         {
-            var newItem = Instantiate(prefab, subpanel.Find("Production Panel"));
-            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(setRObject.resource.resourceType);
-            var textObject = newItem.transform.Find("Number").GetComponent<Text>();
-            textObject.text = "+" + SpecialRound(setRObject.resource.count*60);
+            Populate(resourceSidePanel.Find("Contains Panel"), new List<ResourceItem> { setRObject.resource }, ContainsFormat);
         }
     }
 
-    float SpecialRound(float a)
+    void Populate(Transform panel, List<ResourceItem> items, Func<float, string> NumberFormat)
     {
-        return Mathf.Round(a /60f * 10) / 10;
+        foreach (var r in items)
+        {
+            var newItem = Instantiate(prefab, panel.transform);
+            newItem.transform.Find("Image").GetComponent<Image>().sprite = ResourceDictionary.Instance.GetSprite(r.resourceType);
+            var textObject = newItem.transform.Find("Number").GetComponent<Text>();
+            textObject.text = NumberFormat(r.count);
+        }
+        panel.gameObject.SetActive(items.Count > 0);
+    }
+
+
+    string ProductionFormat(float n)
+    {
+        return "+" + Mathf.Round(n / 60f * 10) / 10;
+        
+    }
+    string UpkeepFormat(float n)
+    {
+        return "-" + Mathf.Round(n / 60f * 10) / 10;
+    }
+    string CostFormat(float n)
+    {
+        return "-" + Mathf.Round(n * 10) / 10;
+    }
+    string ContainsFormat(float n)
+    {
+        return "" + Mathf.Round(n * 10) / 10;
     }
 
 
