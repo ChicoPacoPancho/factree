@@ -31,4 +31,7 @@ MonoBehaviour:
   collectResourceAbilities: []
   removesPlants: 0
   displayName: 
-  shortDescription: Produces a little bit of everything
+  shortDescription: 'Produces a little bit of everything
+
+
+    Squirrels find phosphorous'

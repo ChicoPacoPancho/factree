@@ -19,7 +19,7 @@ MonoBehaviour:
     count: 120
   builtCost:
   - resourceType: 1
-    count: 189
+    count: 180
   - resourceType: 2
     count: 180
   - resourceType: 4
