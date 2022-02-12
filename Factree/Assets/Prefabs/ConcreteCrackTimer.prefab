@@ -50,3 +50,5 @@ MonoBehaviour:
   baseTile: {fileID: 11400000, guid: 4cfba1d13fd51db4481867cb71bb06ef, type: 2}
   setPlantSO: 1
   plantSO: {fileID: 0}
+  setResourceSO: 0
+  resourceSO: {fileID: 0}

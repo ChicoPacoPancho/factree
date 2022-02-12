@@ -85,7 +85,7 @@ public class BuildableSO : ScriptableObject
     {
         foreach (ResourceItem ri in builtCost) {
             var available = ResourceManager.Instance.GetResourceAmountByType(ri.resourceType);
-            if (available <= ri.count)
+            if (available < ri.count)
             {
                 return false;
             }
@@ -131,7 +131,13 @@ public class BuildableSO : ScriptableObject
     {
         foreach (GameObject obj in spawnList)
         {
-            Instantiate(obj, position, Quaternion.identity, null);
+            var newObject = Instantiate(obj, position, Quaternion.identity, null);            
+            var tempSprite = newObject.GetComponentInChildren<SpriteRenderer>();
+
+            var prs = newObject.AddComponent<PositionRendererSorter>();
+            prs.myRenderer = tempSprite;
+            prs.runOnlyOnce = true;
+            
         }
     }
 
