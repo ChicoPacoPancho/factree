@@ -2064,7 +2064,7 @@ MonoBehaviour:
   changeSO: {fileID: 0}
   garbageSO: {fileID: 0}
   selectedTile: {fileID: 0}
-  cityMap: {fileID: 0}
+  cityMap: {fileID: 2058810912}
   selectionSquare: {fileID: 564341495}
   cheatMode: 0
 --- !u!4 &853846298
@@ -2787,7 +2787,7 @@ TilemapRenderer:
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
-  m_Mode: 1
+  m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
 --- !u!1839735485 &2058810912
