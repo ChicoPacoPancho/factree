@@ -54,6 +54,27 @@ public class SelectionPanel : MonoBehaviour
             entry.callback.AddListener((eventData) => { OnPointerExit(card); });
             trigger.triggers.Add(entry);
 
+            // Pass down events for scrolling to the scroll view
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.Scroll;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnScroll", eventData); }); 
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.BeginDrag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnBeginDrag", eventData);  });
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.Drag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnDrag", eventData); });
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.EndDrag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnEndDrag", eventData); });
+            trigger.triggers.Add(entry);
+
             //newItem.transform.Find("Number").GetComponent<Text>().text = "" + r.quanitity;
             card.gameObject = newItem;
         }
