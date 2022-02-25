@@ -15,8 +15,8 @@ public class PositionRendererSorter : MonoBehaviour
 
     void Awake()
     {
-        //  myRenderer = gameObject.GetComponent<SpriteRenderer>();
-        //  myRenderer.sprite = item.picture;
+          myRenderer = gameObject.GetComponent<SpriteRenderer>();
+          //myRenderer.sprite = item.picture;
     }
 
 

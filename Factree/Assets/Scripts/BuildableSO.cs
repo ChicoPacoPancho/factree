@@ -61,6 +61,7 @@ public enum SpawnType
 public class BuildableSO : ScriptableObject
 {
     public Tile baseImage;
+    public Sprite baseSprite;
     public List<ResourceItem> resourceIn;
     public List<ResourceItem> resourceOut;
     public List<ResourceItem> builtCost;

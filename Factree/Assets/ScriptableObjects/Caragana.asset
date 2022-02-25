@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Caragana
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 5ae78c79d5eb8784abaa8a64ce265fe8, type: 2}
+  baseSprite: {fileID: 1815491638646755278, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
   resourceIn:
   - resourceType: 0
     count: 10

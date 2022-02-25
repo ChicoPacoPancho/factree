@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BeeTree
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 6287525c7c1d8aa4d9c1115a64e28ae1, type: 2}
+  baseSprite: {fileID: 7172386802879396316, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
   resourceIn:
   - resourceType: 0
     count: 10

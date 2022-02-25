@@ -8,14 +8,18 @@ public class CityMapGridVisual : MonoBehaviour
     public CityGrid<CityMapGridObject> grid;
     [SerializeField] Tilemap cityMap;
     [SerializeField] Tilemap objectMap;
-    
+
+    public GameObject buildingPrefab;
+    SpriteRenderer myRenderer;
+
+
     // Temp variables
     public Tile baseTile;
     
 
     private void Awake()
     {
-      
+        myRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     public void SetGrid(CityGrid<CityMapGridObject> grid)
@@ -51,7 +55,15 @@ public class CityMapGridVisual : MonoBehaviour
 
                 if (gridValue.PlantTile != null)
                 {
-                    objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.PlantTile.baseImage);
+                    //objectMap.SetTile(new Vector3Int(x, y, 0), gridValue.PlantTile.baseImage);
+                    var worldPos = objectMap.CellToWorld(new Vector3Int(x, y, 0)) + new Vector3(0.0f, 0.25f, 0);
+                    var newObject = Instantiate(buildingPrefab, worldPos, Quaternion.identity, null);
+                    var tempSprite = newObject.GetComponentInChildren<SpriteRenderer>();
+
+                    tempSprite.sprite = gridValue.PlantTile.baseSprite;
+                  //  var prs = newObject.AddComponent<PositionRendererSorter>();
+                  //  prs.myRenderer = tempSprite;
+                  //  prs.runOnlyOnce = true;
                 }
                 if (gridValue.Resource != null)
                 {
