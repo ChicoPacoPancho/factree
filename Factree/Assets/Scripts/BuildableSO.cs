@@ -71,6 +71,12 @@ public class BuildableSO : ScriptableObject
 
     public bool removesPlants = false;
 
+    [TextArea(1, 1)]
+    public string displayName = "";
+
+    [TextArea(3, 5)]
+    public string shortDescription = "";
+
     public bool CanBeBuiltOn(Tile tile)
     {
         return canBuildOn.Contains(GroundDictionary.Instance.GetTileType(tile));
@@ -136,4 +142,22 @@ public class BuildableSO : ScriptableObject
             ca.DoAbility(x, y, targetX, targetY);
         }
     }
+
+    public string GetDisplayName()
+    {
+        if (displayName == null || displayName == "")
+        {
+            // Convert "CamelCase" to "Display Case"
+            return System.Text.RegularExpressions.Regex.Replace(name, "([A-Z])", " $1",
+                System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
+        }
+        return displayName;
+    }
+
+    public string GetDescription()
+    {
+        return shortDescription;
+    }
+
+
 }

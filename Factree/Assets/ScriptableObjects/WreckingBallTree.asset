@@ -30,3 +30,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: Wrecking Ball
+  shortDescription: Knocks down nearby buildings

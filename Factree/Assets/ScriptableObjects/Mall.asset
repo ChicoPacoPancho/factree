@@ -16,3 +16,5 @@ MonoBehaviour:
   resource:
     resourceType: 5
     count: 50
+  displayName: Shopping Mall
+  shortDescription: 

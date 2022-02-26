@@ -28,9 +28,31 @@ public class GarbageSO : ScriptableObject
     //public List<SpawnType> spawnList;
     //public float spawnInterval;
 
+    [TextArea(1, 1)]
+    public string displayName = "";
+
+    [TextArea(3, 5)]
+    public string shortDescription = "";
+
     public void SubtractResource(float amount)
     {
         resource.count -= amount/60;
 
+    }
+
+    public string GetDisplayName()
+    {
+        if (displayName == null || displayName == "")
+        {
+            // Convert "CamelCase" to "Display Case"
+            return System.Text.RegularExpressions.Regex.Replace(name, "([A-Z])", " $1",
+                System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
+        }
+        return displayName;
+    }
+
+    public string GetDescription()
+    {
+        return shortDescription;
     }
 }

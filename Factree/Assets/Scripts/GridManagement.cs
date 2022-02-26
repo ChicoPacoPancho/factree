@@ -140,6 +140,9 @@ public class GridManagement : MonoBehaviour
         cityGrid.GetGridObject(2, 8).Resource = garbageSO;
         cityGrid.GetGridObject(2, 9).Resource = garbageSO;
         cityGrid.GetGridObject(8, 2).Resource = garbageSO;
+
+        // Unset the selected building
+        changeSO = null;
     }
 
     void OnTileSelected(object sender, OnSelectionButtonEventArgs e )

@@ -32,3 +32,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: 
+  shortDescription: Squirrels scavenge materials from shopping malls

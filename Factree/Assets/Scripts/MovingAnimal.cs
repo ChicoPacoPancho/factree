@@ -105,6 +105,8 @@ public class MovingAnimal : MonoBehaviour
 
     void BeeBehaviour()
     {
+        if (grid.cityGrid == null) return; // Wait until the map is generated
+
         if (GetTileTypeAt(focus) != BaseTileType.Soil)
         {
             focus = RandomTileOfType(BaseTileType.Soil);
@@ -120,6 +122,8 @@ public class MovingAnimal : MonoBehaviour
 
     void GoatBehaviour()
     {
+        if (grid.cityGrid == null) return; // Wait until the map is generated
+
         var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
         /*if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
         {
@@ -150,6 +154,8 @@ public class MovingAnimal : MonoBehaviour
     }
     void SquirrelBehaviour()
     {
+        if (grid.cityGrid == null) return; // Wait until the map is generated
+
         var bush = grid.cityGrid.GetGridObject(startingPosition.x, startingPosition.y).PlantTile;
         /*if (Mathf.Round(Time.time) != Mathf.Round(Time.time - Time.deltaTime))
         {

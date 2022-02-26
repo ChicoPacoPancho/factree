@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af3ea37a3f5de1e4a9044e9349bef3b4, type: 3}
   m_Name: GoatBush
   m_EditorClassIdentifier: 
-  baseImage: {fileID: 11400000, guid: 06df2a9a35823b84985b40e2281a8a39, type: 2}
+  baseImage: {fileID: 11400000, guid: f75542ebfe37776418e9daaf824ef06e, type: 2}
   resourceIn:
   - resourceType: 0
     count: 10
   resourceOut:
-  - resourceType: 5
+  - resourceType: 4
     count: 60
   builtCost:
   - resourceType: 1
@@ -32,3 +32,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: Goat Hideout
+  shortDescription: Goats scavenge materials from dumpsters

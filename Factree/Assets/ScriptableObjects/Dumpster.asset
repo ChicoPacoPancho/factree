@@ -16,3 +16,5 @@ MonoBehaviour:
   resource:
     resourceType: 4
     count: 50
+  displayName: 
+  shortDescription: 

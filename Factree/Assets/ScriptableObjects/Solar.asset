@@ -27,3 +27,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: Solar Array
+  shortDescription: A renewable source of energy

@@ -32,7 +32,7 @@ public class SelectionPanel : MonoBehaviour
             var newItem = Instantiate(prefab, transform);
             if (card.scriptableObj != null)
             {
-                card.label = SplitCamelCase(card.scriptableObj.name);
+                card.label = card.scriptableObj.GetDisplayName();
                 card.tile = card.scriptableObj.baseImage;
             }
             var sprite = noneSprite;
@@ -52,6 +52,27 @@ public class SelectionPanel : MonoBehaviour
             entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerExit;
             entry.callback.AddListener((eventData) => { OnPointerExit(card); });
+            trigger.triggers.Add(entry);
+
+            // Pass down events for scrolling to the scroll view
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.Scroll;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnScroll", eventData); }); 
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.BeginDrag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnBeginDrag", eventData);  });
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.Drag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnDrag", eventData); });
+            trigger.triggers.Add(entry);
+
+            entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.EndDrag;
+            entry.callback.AddListener((eventData) => { GetComponentInParent<Image>().SendMessage("OnEndDrag", eventData); });
             trigger.triggers.Add(entry);
 
             //newItem.transform.Find("Number").GetComponent<Text>().text = "" + r.quanitity;
@@ -98,11 +119,6 @@ public class SelectionPanel : MonoBehaviour
     public void OnPointerExit(Card card)
     {
         tooltipPanel.HidePanel();
-    }
-
-    public static string SplitCamelCase(string input)
-    {
-        return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
     }
 
 }

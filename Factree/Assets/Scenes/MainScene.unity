@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 599099658}
   - component: {fileID: 599099657}
   - component: {fileID: 599099656}
+  - component: {fileID: 599099661}
   m_Layer: 5
   m_Name: UI Canvas
   m_TagString: Untagged
@@ -696,13 +697,27 @@ RectTransform:
   - {fileID: 2001981411}
   - {fileID: 1929953906850629063}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &599099661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599099655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63492df9193665148a9369c726e174e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIRatio: 0.5
+  roundDown: 1
 --- !u!1001 &630625981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -772,10 +787,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 530010098}
     m_Modifications:
-    - target: {fileID: 505553212, guid: 300b57c182a6e4347967eeffa5efd07e, type: 3}
-      propertyPath: scriptableObjects.Array.data[12]
-      value: 
-      objectReference: {fileID: 11400000, guid: 54c2ad66e5fb7d240975c050c5c0afb4, type: 2}
     - target: {fileID: 115291327902205928, guid: 300b57c182a6e4347967eeffa5efd07e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2083,7 +2094,7 @@ Transform:
   - {fileID: 564341496}
   - {fileID: 1086112694}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &903938217 stripped
 Transform:
@@ -2200,7 +2211,7 @@ Transform:
   - {fileID: 1910468139}
   - {fileID: 830921524}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1416489861 stripped
 RectTransform:
@@ -3427,7 +3438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 76
-  m_RefResolutionX: 600
+  m_RefResolutionX: 480
   m_RefResolutionY: 300
   m_UpscaleRT: 0
   m_PixelSnapping: 1

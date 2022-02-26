@@ -30,3 +30,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: Giant Flytrap
+  shortDescription: Consumes nearby cars and dumpsters

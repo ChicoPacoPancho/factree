@@ -34,3 +34,5 @@ MonoBehaviour:
   spawnInterval: 0
   collectResourceAbilities: []
   removesPlants: 0
+  displayName: 
+  shortDescription: Changes city tiles to soil
