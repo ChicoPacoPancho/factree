@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseImage: {fileID: 11400000, guid: 38b0c640e6cd0b645b57746cf6d68968, type: 2}
   resource:
-    resourceType: 5
+    resourceType: 4
     count: 50
