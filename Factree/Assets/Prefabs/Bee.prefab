@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2850270483945352238}
-  - component: {fileID: 2850270483945352239}
+  - component: {fileID: 4629745332456022877}
   - component: {fileID: 3431756311981444410}
   m_Layer: 0
   m_Name: Bee
@@ -115,7 +115,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2850270483945352239
+--- !u!114 &4629745332456022877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,20 +124,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2850270483945352237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc685e6897387af48b58b0669e4ae14a, type: 3}
+  m_Script: {fileID: 11500000, guid: f16421897da3f984bbb5331f151670e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingError: 0.01
-  movingSpeed: 0.5
-  destination: {x: 0, y: -1, z: 0}
-  destination2: {x: 0, y: 2, z: 0}
-  backAndForth: 1
+  movingError: 0.005
+  movingSpeed: 0.2
   flipSprite: 1
-  spawnType: 0
+  idleSprite: {fileID: -6648671329575933334, guid: d9b1ec0a547fccf40b4d738ac735529f, type: 3}
+  movingSprite: {fileID: 0}
+  busySprite: {fileID: 0}
   focus: {x: 0, y: 0, z: 0}
   grassGrower: {fileID: 8114938761302644824, guid: 457bc6ee67f2bca4bb1ec819688adc2d, type: 3}
-  dumpRemover: {fileID: 0}
-  mallRemover: {fileID: 0}
+  behaviourRadius: 0.2
 --- !u!82 &3431756311981444410
 AudioSource:
   m_ObjectHideFlags: 0

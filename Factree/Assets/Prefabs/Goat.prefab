@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1020021936925511877}
-  - component: {fileID: 1020021936925511875}
+  - component: {fileID: 7059793746333262725}
   m_Layer: 0
   m_Name: Goat
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1020021936925511875
+--- !u!114 &7059793746333262725
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,20 +41,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1020021936925511878}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc685e6897387af48b58b0669e4ae14a, type: 3}
+  m_Script: {fileID: 11500000, guid: 040de1914c538bb4e8a55d7bdafdcf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingError: 0.01
   movingSpeed: 0.6
-  destination: {x: -1, y: 0, z: 0}
-  destination2: {x: 2, y: 0, z: 0}
-  backAndForth: 1
   flipSprite: 1
-  spawnType: 1
+  idleSprite: {fileID: -1540059275231109329, guid: d9b1ec0a547fccf40b4d738ac735529f, type: 3}
+  movingSprite: {fileID: 0}
+  busySprite: {fileID: 0}
   focus: {x: 0, y: 0, z: 0}
-  grassGrower: {fileID: 0}
-  dumpRemover: {fileID: 0}
-  mallRemover: {fileID: 0}
+  carryingCapacity: 10
+  lookingFor: 0
+  busyTime: 4
 --- !u!1 &1020021937835757981
 GameObject:
   m_ObjectHideFlags: 0

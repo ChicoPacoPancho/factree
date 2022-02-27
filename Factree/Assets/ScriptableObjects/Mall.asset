@@ -15,6 +15,6 @@ MonoBehaviour:
   baseImage: {fileID: 11400000, guid: 436dfbd133c74cc4eaf374e150a271b0, type: 2}
   resource:
     resourceType: 5
-    count: 50
+    count: 200
   displayName: Shopping Mall
   shortDescription: 

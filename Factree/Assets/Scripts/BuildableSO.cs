@@ -11,6 +11,12 @@ public struct ResourceItem
     public ResourceType resourceType;
     [SerializeField]
     public float count;
+
+    public ResourceItem(ResourceType resourceType, float count)
+    {
+        this.resourceType = resourceType;
+        this.count = count;
+    }
 }
 
 public enum BaseTileType

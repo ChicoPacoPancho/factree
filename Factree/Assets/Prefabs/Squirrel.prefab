@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 20
-  m_Sprite: {fileID: -4885472970203346069, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
+  m_Sprite: {fileID: -2313430679551013859, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8176619236461054476}
-  - component: {fileID: 8176619236461054477}
+  - component: {fileID: 7051441592049343904}
   m_Layer: 0
   m_Name: Squirrel
   m_TagString: Untagged
@@ -114,7 +114,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8176619236461054477
+--- !u!114 &7051441592049343904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,17 +123,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8176619236461054479}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc685e6897387af48b58b0669e4ae14a, type: 3}
+  m_Script: {fileID: 11500000, guid: 040de1914c538bb4e8a55d7bdafdcf1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movingError: 0.01
   movingSpeed: 1
-  destination: {x: 0, y: -1, z: 0}
-  destination2: {x: 0, y: 2, z: 0}
-  backAndForth: 1
   flipSprite: 1
-  spawnType: 2
+  idleSprite: {fileID: -2313430679551013859, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
+  movingSprite: {fileID: -4885472970203346069, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
+  busySprite: {fileID: -2313430679551013859, guid: 08ea074d4e4f7f7449e8239e9355cde9, type: 3}
   focus: {x: 0, y: 0, z: 0}
-  grassGrower: {fileID: 0}
-  dumpRemover: {fileID: 0}
-  mallRemover: {fileID: 0}
+  carryingCapacity: 2
+  lookingFor: 2
+  busyTime: 2

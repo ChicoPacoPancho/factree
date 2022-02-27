@@ -19,8 +19,6 @@ public class CollectResourceAbility : ScriptableObject
         Debug.Log("Do Ability");
         GridManagement gm = FindObjectOfType<GridManagement>();
         GarbageSO objectAtLocation = gm.cityGrid.GetGridObject(targetX, targetY).Resource;
-        Debug.Log(objectAtLocation);
-        Debug.Log(objectAtLocation);
         if (objectAtLocation == requiredGarbage)
         {
             if(Vector2.Distance(new Vector2(x,y), new Vector2(targetX, targetY)) <= radius)
@@ -37,7 +35,7 @@ public class CollectResourceAbility : ScriptableObject
                     ResourceManager.Instance.AddTimeResourceChange(r.resourceType, r.count, totalSeconds);
                 }
 
-                objectAtLocation.SubtractResource(garbageSubtracted);
+                //objectAtLocation.SubtractResource(garbageSubtracted);
             }
             
         }  

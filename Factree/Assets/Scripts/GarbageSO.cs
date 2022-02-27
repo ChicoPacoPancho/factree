@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 
@@ -19,14 +20,8 @@ public enum GarbageTileType
 public class GarbageSO : ScriptableObject
 {
 
-
     public Tile baseImage;
     public ResourceItem resource;
-    //public List<ResourceItem> resourceOut;
-    //public List<ResourceItem> builtCost;
-    //public List<BaseTileType> canBuildOn;
-    //public List<SpawnType> spawnList;
-    //public float spawnInterval;
 
     [TextArea(1, 1)]
     public string displayName = "";
@@ -34,11 +29,6 @@ public class GarbageSO : ScriptableObject
     [TextArea(3, 5)]
     public string shortDescription = "";
 
-    public void SubtractResource(float amount)
-    {
-        resource.count -= amount/60;
-
-    }
 
     public string GetDisplayName()
     {

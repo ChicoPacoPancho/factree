@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Tilemaps;
 
 public class DestroySelfTimer : MonoBehaviour
 {
+    public UnityAction onDestroy;
 
     public float delay = 5;
     public GameObject activateOnDestroy = null;
@@ -62,5 +64,8 @@ public class DestroySelfTimer : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    private void OnDestroy()
+    {
+        onDestroy.Invoke();
+    }
 }
